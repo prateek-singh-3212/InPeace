@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.inpeace">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.InPeace"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".music.MainMusic">
+
+        </activity>
+        <activity android:name=".trial.cardView.Main">
+
+        </activity>
+        <activity android:name=".music.trail_music"></activity>
+        <activity android:name=".games.trial2" />
+        <activity android:name=".motivation.MotivationHome" />
+        <activity android:name=".games.trial" />
+        <activity android:name=".HomePage.MainPage" />
+        <activity android:name=".main" />
+        <activity android:name=".login.PasswordVerification" />
+        <activity android:name=".login.PhoneAuth" />
+        <activity android:name=".login.signup" />
+        <activity android:name=".login.signin" />
+        <activity android:name=".login.HomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

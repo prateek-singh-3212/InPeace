@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "634963602210",
+    "project_id": "in-peace",
+    "storage_bucket": "in-peace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634963602210:android:037012469b02ea470d937b",
+        "android_client_info": {
+          "package_name": "com.example.inpeace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634963602210-cnu51r7m5up5gj4nec4eu4cl2afp4gf9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.inpeace",
+            "certificate_hash": "0346fa0ade49cdc935662f96acf2db46d4662a02"
+          }
+        },
+        {
+          "client_id": "634963602210-v3btc6un7njnqm96udnstamo137k20n0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgsGihrjTcLCgfER_aVeyiOdds4WPKmYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634963602210-v3btc6un7njnqm96udnstamo137k20n0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
