@@ -5,10 +5,14 @@ import java.util.Scanner;
 public class ModelMusic {
     private String Songname ;
     private String SongURL;
+    private String SongImage;
 
-//    public void changeTEXT(String text){
-//        text = Songname;
-//    }
+    public ModelMusic(String songname, String songURL, String songImage) {
+        Songname = songname;
+        SongURL = songURL;
+        SongImage = songImage;
+    }
+
 
     public ModelMusic() {
     }
@@ -29,9 +33,11 @@ public class ModelMusic {
         SongURL = songURL;
     }
 
-    public ModelMusic(String songname, String songURL) {
-        Songname = songname;
-        SongURL = songURL;
+    public String getSongImage() {
+        return SongImage;
     }
 
+    public void setSongImage(String songImage) {
+        SongImage = songImage;
+    }
 }

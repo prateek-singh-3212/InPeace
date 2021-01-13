@@ -1,6 +1,7 @@
 package com.example.inpeace.trial.cardView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inpeace.R;
 import com.example.inpeace.music.AdapterMusic;
+import com.example.inpeace.music.MusicPlayerActivity;
 
 import java.util.ArrayList;
 
@@ -63,12 +65,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
-                        }
-                    }
+                   v.getContext().startActivity(new Intent(v.getContext() , MusicPlayerActivity.class));
+
+//                    if(listener != null){
+//                        int position = getAdapterPosition();
+//                        if(position != RecyclerView.NO_POSITION){
+//                            listener.onItemClick(position);
+//                        }
+//                    }
                 }
             });
         }

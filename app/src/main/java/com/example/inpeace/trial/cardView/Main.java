@@ -32,12 +32,12 @@ public class Main extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnClickListener(new Adapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                model123.get(position).changeText("Clicked");
-                adapter.notifyItemChanged(position);
-            }
-        });
+//        adapter.setOnClickListener(new Adapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                model123.get(position).changeText("Clicked");
+//                adapter.notifyItemChanged(position);
+//            }
+//        });
     }
 }
