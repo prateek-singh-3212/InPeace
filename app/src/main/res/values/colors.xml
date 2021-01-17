@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#BEBDB8</color>
     <color name="semiTransparentColor">#B8FFFFFF</color>
+    <color name="MusicFont">#2B4031</color>
+    <color name="MusicCardBackground">#7DD6D6D6</color>
 </resources>

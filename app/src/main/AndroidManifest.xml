@@ -14,29 +14,35 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activites.HomePage">
+        <activity android:name=".motivation.MainVideoPlayer"></activity>
+        <activity android:name=".motivation.mainMotivation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activites.HomePage" />
         <activity android:name=".music.MusicPlayerActivity" />
-        <activity android:name=".music.MainMusic"></activity>
-        <activity android:name=".trial.cardView.Main"></activity>
+        <activity android:name=".music.MainMusic" />
+        <activity android:name=".trial.cardView.Main" />
         <activity android:name=".music.trail_music" />
         <activity android:name=".games.trial2" />
         <activity android:name=".motivation.MotivationHome" />
         <activity android:name=".games.trial" />
         <activity android:name=".HomePage.MainPage" />
-        <activity android:name=".main"></activity>
+        <activity android:name=".main">
+
+        </activity>
         <activity android:name=".login.PasswordVerification" />
         <activity android:name=".login.PhoneAuth" />
         <activity android:name=".login.signup" />
         <activity android:name=".login.signin" />
-        <activity android:name=".login.HomePage">
+        <activity android:name=".login.HomePage" />
 
-        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -6,17 +6,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Database extends SQLiteOpenHelper {
 
-    private static final String DatabaseName = "User";
+    private static final String DatabaseName = "sdasd";
     public Database(@Nullable Context context) {
         super(context, DatabaseName, null, 1);
     }
@@ -68,13 +71,13 @@ public class Database extends SQLiteOpenHelper {
 //        database.close();
     }
 
-    public boolean insert_Value_In_UserActivity(String Activity , String Code , String Time){
+    public boolean insert_Value_In_UserActivity(String tablename , String Activity , String Code , String Time){
         SQLiteDatabase database = this.getReadableDatabase();
         ContentValues content = new ContentValues(3);
         content.put("Activity" , Activity);
         content.put("Time" , Time);
         content.put("TaskCode" , Code);
-        long result = database.insert("ABC",null,content);
+        long result = database.insert(tablename,null,content);
 //        database.close();
         if(result == -1)
             return false;
@@ -145,9 +148,9 @@ public class Database extends SQLiteOpenHelper {
         return cursor.getString(cursor.getColumnIndex("Time"));
     }
 
-    public String time_difference(String storedTime){
+    public String time_difference(String currentTime , String storedTime){
         SQLiteDatabase database = this.getReadableDatabase();
-        String Query = "SELECT time('" +current_time()+"','-"+ storedTime+ "') as 'Time' ";
+        String Query = "SELECT time('" +currentTime+"','-"+ storedTime+ "') as 'Time' ";
         Cursor cursor = database.rawQuery(Query , null);
         cursor.moveToFirst();
 //        database.close();
@@ -157,7 +160,8 @@ public class Database extends SQLiteOpenHelper {
     public void empty_user_table(String tablename ){
         SQLiteDatabase database = this.getReadableDatabase();
         String Query = "delete from "+ tablename;
-        database.execSQL(Query );
+        database.execSQL(Query);
+        Log.d("DEL", "DELETED");
 //        database.close();
     }
 
@@ -187,14 +191,36 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public String selecting_tasks_from_ourActivity(String task_code){
-            SQLiteDatabase database = this.getReadableDatabase();
-            String Query = "SELECT Activity FROM OurActivity where Code = '"+ task_code + "'";
-            Cursor cursor = database.rawQuery(Query , null);
-            cursor.moveToFirst();
+        SQLiteDatabase database = this.getReadableDatabase();
+        String Query = "SELECT Activity FROM OurActivity where Code = '"+ task_code + "'";
+        Cursor cursor = database.rawQuery(Query , null);
+        cursor.moveToFirst();
 //            database.close();
-            return cursor.getString(cursor.getColumnIndex("Activity"));
+        return cursor.getString(cursor.getColumnIndex("Activity"));
     }
 
 
+    public boolean user_activity_codes(String tablename , String codeFromOurActivity){
+        SQLiteDatabase database = this.getReadableDatabase();
+        final String Querry = "select TaskCode from "+ tablename +" where TaskCode = '"+ codeFromOurActivity + "' ";
+        Cursor cursor = database.rawQuery(Querry,null);
+        cursor.moveToFirst();
+        if(cursor.getCount()==0)
+            return true; // value anae do
+        else
+            return false;
+    }
+
+    public ArrayList<ActivityModel> getDataFromUserTableToModelClass(String tablename){
+        SQLiteDatabase database = this.getReadableDatabase();
+        final String Querry = "select * from "+ tablename ;
+        Cursor cursor = database.rawQuery(Querry,null);
+        ArrayList<ActivityModel> Activity = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            Activity.add(new ActivityModel(cursor.getString(cursor.getColumnIndex("Activity"))));
+            Log.d("TASK", cursor.getString(cursor.getColumnIndex("Activity")));
+        }
+        return Activity;
+    }
 
 }

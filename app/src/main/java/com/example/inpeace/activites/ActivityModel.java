@@ -2,9 +2,14 @@ package com.example.inpeace.activites;
 
 public class ActivityModel {
 
-    String Task, SNo;
+    String Task, Code;
 
     public ActivityModel() {
+    }
+
+    public ActivityModel(String task, String code) {
+        Task = task;
+        Code = code;
     }
 
     public String getTask() {
@@ -15,16 +20,15 @@ public class ActivityModel {
         Task = task;
     }
 
-    public String getSNo() {
-        return SNo;
+    public String getCode() {
+        return Code;
     }
 
-    public void setSNo(String SNo) {
-        this.SNo = SNo;
+    public void setCode(String code) {
+        Code = code;
     }
 
-    public ActivityModel(String task, String SNo) {
+    public ActivityModel(String task) {
         Task = task;
-        this.SNo = SNo;
     }
 }

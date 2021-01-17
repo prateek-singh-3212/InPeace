@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.inpeace.activites.HomePage;
 import com.example.inpeace.games.trial;
+import com.example.inpeace.motivation.MotivationHome;
+import com.example.inpeace.music.MainMusic;
 
 public class main extends AppCompatActivity {
 
@@ -32,10 +35,40 @@ public class main extends AppCompatActivity {
         game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent( main.this , trial.class);
                 startActivity(intent);
+            }
+        });
 
+        music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( main.this , MainMusic.class);
+                startActivity(intent);
+            }
+        });
+
+//        motivation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent( main.this , MotivationHome.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        audiobooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( main.this , trial.class);
+                startActivity(intent);
+            }
+        });
+
+        activites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( main.this , HomePage.class);
+                startActivity(intent);
             }
         });
 
