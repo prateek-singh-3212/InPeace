@@ -2,9 +2,15 @@ package com.example.inpeace.music;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -13,6 +19,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +30,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+import static com.example.inpeace.Notification.PLAYER_ID;
 
 public class MusicPlayerActivity extends AppCompatActivity {
 
@@ -35,7 +43,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
     private MediaPlayer player;
     private ImageView songImage;
     private Handler handler = new Handler();
-
+    private CardView miniPlayer;
+    private ProgressBar progressBar;
+    private NotificationManagerCompat manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +62,11 @@ public class MusicPlayerActivity extends AppCompatActivity {
         playpausebuttonMusic = findViewById(R.id.playpausebuttonMusic);
         mainPlayerseekbar = findViewById(R.id.mainPlayerseekbar);
         player = new MediaPlayer();
+        progressBar = findViewById(R.id.musicPlayerLoading);
+        manager = NotificationManagerCompat.from(this);
+
+        notificationMusic();
+        progressBar = new ProgressBar(this);
 
         mainPlayerseekbar.setMax(100);
 
@@ -59,6 +74,17 @@ public class MusicPlayerActivity extends AppCompatActivity {
         playpausebuttonMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+
+                preparemediaplayer(getIntent().getStringExtra("URL"));
+//                totaltimesongTVMusic.setText(player.getDuration());
                 if(player.isPlaying()){
                     handler.removeCallbacks(updater);
                     player.pause();
@@ -165,15 +191,35 @@ public class MusicPlayerActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        preparemediaplayer(getIntent().getStringExtra("URL"));
 
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        miniPlayer= findViewById(R.id.miniMusicPlayer);
         if(keyCode == event.KEYCODE_BACK){
-            player.stop();
+            miniPlayer.setVisibility(View.VISIBLE);
         }
+       // player.stop();
         return super.onKeyDown(keyCode, event);
     }
+
+    public void notificationMusic(){
+
+        Notification notification = new NotificationCompat.Builder(MusicPlayerActivity.this,PLAYER_ID)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setSmallIcon(R.drawable.logo_splash)
+//                .addAction(R.drawable.ic_new_pause,"Pause",pause)
+//                .setStyle(new Notification.MediaStyle()
+//                        .setShowActionsInCompactView(1 /* #1: pause button */)
+//                        .setMediaSession(mediaSession.getSessionToken()))
+                .setContentTitle("NAME")
+                .setContentText("Assdasddda")
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .build();
+
+        manager.notify(1,notification);
+
+    }
+
 }

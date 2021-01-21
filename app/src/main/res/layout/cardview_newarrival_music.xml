@@ -5,7 +5,7 @@
     android:layout_height="110sp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="27sp"
-    app:cardBackgroundColor="@color/MusicCardBackground">
+    app:cardBackgroundColor="@color/kshitz">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,6 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.313" />
+
 
         <TextView
             android:id="@+id/textView11"

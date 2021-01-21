@@ -107,7 +107,7 @@ public class signup extends AppCompatActivity {
 
                         // Opening new activity password verification
                         Intent intent = new Intent(signup.this, PasswordVerification.class);
-                        intent.putExtra("dododo",signupEmail.getText().toString());
+                        intent.putExtra("Email",signupEmail.getText().toString());
                         startActivity(intent);
                     }else {
                         Toast.makeText(signup.this , "Check email id" , Toast.LENGTH_LONG).show();

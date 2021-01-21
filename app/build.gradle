@@ -42,7 +42,8 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:6.2.1'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
-
+    //material
+    implementation 'com.google.android.material:material:1.0.0-alpha1'
 
     implementation 'com.hbb20:ccp:2.1.9'
     implementation 'pub.devrel:easypermissions:0.4.0'
@@ -51,6 +52,9 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:25.1.0'
+
+    implementation 'com.google.firebase:firebase-messaging'
+
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'

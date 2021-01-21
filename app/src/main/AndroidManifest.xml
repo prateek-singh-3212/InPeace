@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".Notification"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,35 +15,45 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".motivation.MainVideoPlayer"></activity>
-        <activity android:name=".motivation.mainMotivation" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".games.Tic_Tac_Toe" />
+        <activity android:name=".music.newLayout.NewMusicLayout" />
+        <activity android:name=".motivation.mainMotivation" />
         <activity android:name=".activites.HomePage" />
         <activity android:name=".music.MusicPlayerActivity" />
-        <activity android:name=".music.MainMusic" />
+        <activity android:name=".music.MainMusic"></activity>
         <activity android:name=".trial.cardView.Main" />
         <activity android:name=".music.trail_music" />
         <activity android:name=".games.trial2" />
         <activity android:name=".motivation.MotivationHome" />
         <activity android:name=".games.trial" />
         <activity android:name=".HomePage.MainPage" />
-        <activity android:name=".main">
-
-        </activity>
+        <activity android:name=".main" />
         <activity android:name=".login.PasswordVerification" />
         <activity android:name=".login.PhoneAuth" />
         <activity android:name=".login.signup" />
         <activity android:name=".login.signin" />
-        <activity android:name=".login.HomePage" />
+        <activity android:name=".login.HomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+<!--        <service-->
+<!--            android:name=".MyFirebaseMessagingService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
     </application>
+
+
 
 </manifest>

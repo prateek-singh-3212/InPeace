@@ -98,6 +98,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.829" />
 
+    <ProgressBar
+        android:id="@+id/musicPlayerLoading"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/playpausebuttonMusic"
+        app:layout_constraintEnd_toEndOf="@+id/playpausebuttonMusic"
+        app:layout_constraintStart_toStartOf="@+id/playpausebuttonMusic"
+        app:layout_constraintTop_toTopOf="@+id/playpausebuttonMusic" />
+
     <TextView
         android:id="@+id/URL_HOLDER"
         android:layout_width="wrap_content"

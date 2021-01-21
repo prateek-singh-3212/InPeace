@@ -9,86 +9,94 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="333dp"
-        android:layout_height="68dp"
-        android:text="Phone Number"
-        android:textSize="50sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Phone"
+        android:textColor="@color/black"
+        android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.051" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="333dp"
-        android:layout_height="68dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Authentication"
-        android:textSize="50sp"
+        android:textColor="@color/black"
+        android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/phoneauthPhoneCV"
-        android:layout_width="396dp"
-        android:layout_height="234dp"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="@color/grey"
+
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591">
+        app:layout_constraintVertical_bias="0.311">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/phoneauthPhoneCL"
             android:layout_width="match_parent"
-            android:layout_height="226dp"
+            android:layout_height="match_parent"
             android:visibility="visible">
 
 
             <TextView
                 android:id="@+id/phoneauthTVPhonePhone"
-                android:layout_width="77dp"
-                android:layout_height="39dp"
-                android:text="Phone :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Please enter your phone number :"
+                android:textColor="@color/black"
                 android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhonePhone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.043"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.181" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/phoneauthPhoneCcp"
-                android:layout_width="122dp"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
                 app:ccp_defaultNameCode="In"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhoneSendOtpBtn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintHorizontal_bias="0.063"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.177" />
+                app:layout_constraintVertical_bias="0.815" />
 
             <EditText
                 android:id="@+id/phoneauthPhonePhone"
-                android:layout_width="172dp"
-                android:layout_height="50dp"
+                android:layout_width="237dp"
+                android:layout_height="46dp"
                 android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhoneSendOtpBtn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintHorizontal_bias="0.896"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.185" />
+                app:layout_constraintVertical_bias="0.815" />
 
             <Button
                 android:id="@+id/phoneauthPhoneSendOtpBtn"
@@ -98,18 +106,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/phoneauthPhonePhoneError"
-                android:layout_width="297dp"
-                android:layout_height="67dp"
-                android:text="Errors"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.922" />
+                app:layout_constraintVertical_bias="0.874" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

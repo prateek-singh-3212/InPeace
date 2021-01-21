@@ -65,7 +65,7 @@ public class PhoneAuth extends AppCompatActivity {
         phoneauthPhoneCL = findViewById(R.id.phoneauthPhoneCL);
         phoneauthOTPCL= findViewById(R.id.phoneauthOTPCL);
         phoneauthTVOTPError = findViewById(R.id.phoneauthTVOTPError);
-        phoneauthPhonePhoneError =findViewById(R.id.phoneauthPhonePhoneError);
+        //phoneauthPhonePhoneError =findViewById(R.id.phoneauthPhonePhoneError);
         phoneauthPhonePhone = findViewById(R.id.phoneauthPhonePhone);
         phoneauthOTPOTP = findViewById(R.id.phoneauthOTPOTP);
         phoneauthPhoneCcp = (CountryCodePicker) findViewById(R.id.phoneauthPhoneCcp);

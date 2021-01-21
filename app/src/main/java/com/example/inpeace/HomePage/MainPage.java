@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 import com.example.inpeace.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainPage extends AppCompatActivity {
 
     private Button btn ;
@@ -17,6 +21,7 @@ public class MainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
 
         btn =(Button) findViewById(R.id.homeCVGameBtn);
 

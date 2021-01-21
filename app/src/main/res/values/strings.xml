@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">InPeace</string>
+    <string name="task1">Task1</string>
+    <string name="heading">Welcome to Tic-Tac-Toe</string>
+    <string name="grid">Our main grid</string>
+    <string name="status">X\'s Turn: Tap to play</string>
+    <string name="x_score">X Score:</string>
+    <string name="o_score">O Score:</string>
 </resources>
