@@ -6,4 +6,7 @@
     <string name="status">X\'s Turn: Tap to play</string>
     <string name="x_score">X Score:</string>
     <string name="o_score">O Score:</string>
+    <string name="draw_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="draw_res">Open</string>
 </resources>

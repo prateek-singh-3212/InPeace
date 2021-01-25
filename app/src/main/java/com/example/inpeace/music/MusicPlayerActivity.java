@@ -8,6 +8,10 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -206,15 +210,22 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     public void notificationMusic(){
 
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.logo_splash);
+//
+//        PendingIntent intent = new PendingIntent(this,trail_music.class);
+
         Notification notification = new NotificationCompat.Builder(MusicPlayerActivity.this,PLAYER_ID)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setSmallIcon(R.drawable.logo_splash)
-//                .addAction(R.drawable.ic_new_pause,"Pause",pause)
+//                .addAction(R.drawable.ic_new_pause,"Pause",intent)
 //                .setStyle(new Notification.MediaStyle()
 //                        .setShowActionsInCompactView(1 /* #1: pause button */)
-//                        .setMediaSession(mediaSession.getSessionToken()))
+//                        .setMediaSession(player.getSessionToken()))
+
                 .setContentTitle("NAME")
-                .setContentText("Assdasddda")
+                .setContentText("Title")
+
+                .setLargeIcon(bitmap)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .build();
 

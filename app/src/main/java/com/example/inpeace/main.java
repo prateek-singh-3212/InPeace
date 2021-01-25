@@ -1,12 +1,17 @@
 package com.example.inpeace;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,12 +23,13 @@ import com.example.inpeace.motivation.MotivationHome;
 import com.example.inpeace.music.MainMusic;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class main extends AppCompatActivity {
+public class main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private Button game ;
@@ -31,13 +37,16 @@ public class main extends AppCompatActivity {
     private Button music ;
     private Button motivation ;
     private Button activites ;
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //spashScreen();
-
         setContentView(R.layout.activity_main);
+
+
+        setNavigationPannel();
+
 
 //        FirebaseMessaging.getInstance().subscribeToTopic("Tests")
 //                .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -100,24 +109,40 @@ public class main extends AppCompatActivity {
 
     }
 
-//    private void spashScreen() {
-//        int handler =2000;
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent i=new Intent(main.this,
-//                        MainActivity.class);
-//                //Intent is used to switch from one activity to another.
-//
-//                startActivity(i);
-//                //invoke the SecondActivity.
-//
-//                finish();
-//                //the current activity will get finished.
-//            }
-//        }, handler);
-//    }
+    private void setNavigationPannel(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.draw_res,R.string.drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //Custom Icon
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_5g);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+
+    }
+
+
 }

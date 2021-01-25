@@ -15,7 +15,13 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".games.Tic_Tac_Toe" />
         <activity android:name=".music.newLayout.NewMusicLayout" />
         <activity android:name=".motivation.mainMotivation" />
@@ -34,11 +40,7 @@
         <activity android:name=".login.signup" />
         <activity android:name=".login.signin" />
         <activity android:name=".login.HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
