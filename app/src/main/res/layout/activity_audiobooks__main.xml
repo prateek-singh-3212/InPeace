@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_audiobook_background"
+    tools:context=".audiobooks.audiobooks_MainActivity">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="Genres"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.033"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.018" />-->
+
+
+<!--    &lt;!&ndash;    For Multiple button thats why i use Recycler View&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="55dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toTopOf="@+id/imageView11"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintHorizontal_bias="0.0"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView15"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintVertical_bias="0.869" />&ndash;&gt;-->
+
+<!--    <Button-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@drawable/ic_audiobook_button"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Love"-->
+<!--        android:textColor="@color/audiobookFontColor"-->
+<!--        android:textSize="8dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageView11"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.082"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+<!--        app:layout_constraintVertical_bias="0.535" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@drawable/ic_audiobook_button"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Sci-Fi"-->
+<!--        android:textColor="@color/audiobookFontColor"-->
+<!--        android:textSize="8dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageView11"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.638"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+<!--        app:layout_constraintVertical_bias="0.535" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button3"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@drawable/ic_audiobook_button"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Humor"-->
+<!--        android:textColor="@color/audiobookFontColor"-->
+<!--        android:textSize="8dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageView11"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.903"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+<!--        app:layout_constraintVertical_bias="0.535" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button2"-->
+<!--        android:layout_width="75dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:background="@drawable/ic_audiobook_button"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Novel"-->
+<!--        android:textColor="@color/audiobookFontColor"-->
+<!--        android:textSize="8dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageView11"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.351"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+<!--        app:layout_constraintVertical_bias="0.535" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView11"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_line_sepertator"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.48"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.113" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/audiobooks_content_fragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:name="com.example.inpeace.audiobooks.audiobook_content"-->
+<!--        android:layout_height="767dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView11"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,14 +19,14 @@ import java.util.List;
 
 public class Database extends SQLiteOpenHelper {
 
-    private static final String DatabaseName = "sdasd";
+    private static final String DatabaseName = "UserActivity";
     public Database(@Nullable Context context) {
         super(context, DatabaseName, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL("drop table OurActivity");
+    //    db.execSQL("drop table if exists OurActivity  ");
         final String Querry = "create table OurActivity( SNo  integer primary key autoincrement, Activity text , Code text )";
         db.execSQL(Querry);
     }

@@ -17,7 +17,7 @@ public class SQLiteDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(android.database.sqlite.SQLiteDatabase db) {
-        final String Querry = "create table loginStatus ( UserId text primary key, LoginStatus boolean , LastLogInTime datetime default current_timestamp)";
+        final String Querry = "create table loginStatus ( UserId text , LoginStatus boolean , LastLogInTime datetime default current_timestamp)";
         db.execSQL(Querry);
     }
 
@@ -66,5 +66,11 @@ public class SQLiteDatabase extends SQLiteOpenHelper {
         }else {
             return false;
         }
+    }
+
+    public void logOut_user(String userId){
+        android.database.sqlite.SQLiteDatabase database = getWritableDatabase();
+        String Querry ="Update loginStatus set LoginStatus = 'false' where UserId = '"+ userId+"'";
+        database.execSQL(Querry);
     }
 }

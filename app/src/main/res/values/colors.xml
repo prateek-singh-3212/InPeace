@@ -16,4 +16,6 @@
     <color name="MusicFooterFont">#A1A1A1</color>
     <color name="transperent">#00FFFFFF</color>
     <color name="signinbutton">#161515</color>
+    <color name="audiobookColorBtn">#B5E7E7E7</color>
+    <color name="audiobookFontColor">#413737</color>
 </resources>

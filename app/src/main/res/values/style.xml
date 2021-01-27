@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AudioBookHomepage">
+        <item name="colorPrimary">@color/audiobookColorBtn</item>
+        <item name="colorPrimaryVariant">@color/audiobookColorBtn</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+<!--        status bar color -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+    </style>
+
+
+    <style name="AudioBookCardViewBackground">
+        <item name="background">@drawable/ic_audiobook_cardview_background</item>
+    </style>
+</resources>

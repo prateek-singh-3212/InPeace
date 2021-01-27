@@ -1,5 +1,11 @@
 package com.example.inpeace;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,27 +13,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-
 import com.example.inpeace.activites.HomePage;
+import com.example.inpeace.audiobooks.audiobooks_MainActivity;
 import com.example.inpeace.games.Tic_Tac_Toe;
-import com.example.inpeace.games.trial;
-import com.example.inpeace.motivation.MotivationHome;
 import com.example.inpeace.music.MainMusic;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.messaging.FirebaseMessaging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -94,7 +84,7 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
         audiobooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( main.this , trial.class);
+                Intent intent = new Intent(main.this, audiobooks_MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -130,19 +120,58 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.profile: {
+                drawer.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer, new profile())
+                        .commit();
+            }
+            break;
+
+            case R.id.settings: {
+                drawer.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer, new settings())
+                        .commit();
+            }
+
+            break;
+
+            case R.id.logout: {
+                drawer.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer, new logout())
+                        .commit();
+            }
+
+            break;
+
+            case R.id.aboutus: {
+                drawer.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer, new aboutus())
+                        .commit();
+            }
+
+        }
+
         return true;
     }
+
 
     @Override
     public void onBackPressed() {
 
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
 
     }
 
 
+//    public void profileFragment(MenuItem item) {
+//        getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer,new profile())
+//                .commit();
+//    }
 }

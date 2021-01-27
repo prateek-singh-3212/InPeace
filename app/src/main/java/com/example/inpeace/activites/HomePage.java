@@ -57,11 +57,11 @@ public class HomePage extends AppCompatActivity {
                 Database database = new Database(HomePage.this);
                 database.create_our_activity_table();
                 textView.setText(database.current_time());
-                database.getReadableDatabase();
+//                database.getReadableDatabase();
                 for (DataSnapshot snap : snapshot.getChildren()){
-                    Log.d("ABCDE",snap.child("Task").getValue().toString().trim());
+                    Log.d("ABCDE",snap.child("Task").getValue().toString().trim() );
                     boolean bool = database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
-//
+                    Log.d("DO"," "+ bool);
 //                    if(bool == true)
 //                        Toast.makeText(HomePage.this , "Done" , Toast.LENGTH_LONG).show();
 //                    else
