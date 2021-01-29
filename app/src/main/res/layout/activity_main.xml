@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".main">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,8 +15,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/purple_200"
-            android:elevation="40dp"
+            android:background="@color/white"
+            android:elevation="80dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,82 +25,427 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_scrollFlags="noScroll"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="324dp"
-            android:layout_height="84dp"
-            android:text="Hello World!"
-            android:textSize="50dp"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_written"
+                android:scaleType="centerInside"
+                android:layout_gravity="center"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.597"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.106" />
+            app:layout_constraintVertical_bias="0.918">
 
-        <Button
-            android:id="@+id/mainGameBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Games"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.viewpager.widget.ViewPager
+                                android:id="@+id/slideShowPager"
+                                android:layout_width="match_parent"
+                                android:layout_height="220dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.495"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.126" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/audio"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:clickable="true"
+                                android:onClick="openAudioBooks"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="105dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="20dp"
+                                        android:src="@drawable/soundlogo">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="90dp"
+                                        android:text="@string/card1"
+                                        android:textSize="50sp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/games"
+                                android:clickable="true"
+                                android:onClick="openGames"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/audio">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        android:src="@drawable/gameslogo">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="80dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card2"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/videos"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:onClick="openVideos"
+                                android:clickable="true"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/games">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        android:src="@drawable/videologo">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="85dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card3"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/music"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                android:clickable="true"
+                                android:onClick="openMusic"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/videos">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        app:srcCompat="@drawable/ic_music_new"/>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="90dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card4"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/tasks"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:clickable="true"
+                                android:onClick="openTask"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/music">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        android:src="@drawable/taskslogo">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="85dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card5"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/motivation"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                android:clickable="true"
+                                android:onClick="openMotivation"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tasks">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        app:srcCompat="@drawable/ic_inspiration"></ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="40dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card6"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/consultation"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:layout_marginTop="29dp"
+                                android:clickable="true"
+                                android:onClick="openConsultation"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/motivation">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        app:srcCompat="@drawable/ic_consulting"></ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="60dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card7"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/globalchat"
+                                android:layout_width="match_parent"
+                                android:layout_height="121dp"
+                                android:clickable="true"
+                                android:onClick="openGlobalCommunication"
+                                android:layout_marginTop="29dp"
+                                app:cardCornerRadius="30dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/consultation">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/gradient_mainpage_cardviw">
+
+                                    <ImageView
+                                        android:layout_width="115dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        app:srcCompat="@drawable/ic_global_communication"></ImageView>
+
+                                    <TextView
+                                        android:layout_width="262dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginTop="20dp"
+                                        android:text="@string/card8"
+                                        android:textSize="50dp">
+
+                                    </TextView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+        </ScrollView>
+        <!--        <Button-->
+        <!--            android:id="@+id/mainGameBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Games"-->
 
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.294" />
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.733"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.425" />-->
 
-        <Button
-            android:id="@+id/mainAudiobooksBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AudioBooks"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.411" />
+        <!--        <Button-->
+        <!--            android:id="@+id/mainAudiobooksBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="AudioBooks"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.185"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.425" />-->
 
-        <Button
-            android:id="@+id/mainMusicBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Music"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.528" />
+        <!--        <Button-->
+        <!--            android:id="@+id/mainMusicBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Music"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.528" />-->
 
-        <Button
-            android:id="@+id/mainMotivationBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Motivation"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.663" />
+        <!--        <Button-->
+        <!--            android:id="@+id/mainMotivationBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Motivation"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.663" />-->
 
-        <Button
-            android:id="@+id/mainActivitesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Activites"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777" />
+        <!--        <Button-->
+        <!--            android:id="@+id/mainActivitesBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Activites"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.498"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintVertical_bias="0.777" />-->
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/navFragmentContainer"
         android:layout_width="match_parent"

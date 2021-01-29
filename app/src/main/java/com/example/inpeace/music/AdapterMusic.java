@@ -2,6 +2,9 @@ package com.example.inpeace.music;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaParser;
+import android.media.MediaPlayer;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +22,13 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
 
+import android.os.Handler;
+
 public class AdapterMusic  extends FirebaseRecyclerAdapter<ModelMusic , AdapterMusic.Viewholder> {
 
     private OnItemClickListener mListener;
-
+//    private Handler handler = new Handler(Looper.getMainLooper());
+//    private MediaPlayer player= new MediaPlayer();
 
     public interface  OnItemClickListener{
         void onItemClick(int position);
@@ -78,12 +84,6 @@ public class AdapterMusic  extends FirebaseRecyclerAdapter<ModelMusic , AdapterM
             itemView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ProgressDialog loding = new ProgressDialog(v.getContext());
-                    loding.setTitle("Loading...");
-                    loding.setTitle("Setting Up Please wait");
-                    loding.setCanceledOnTouchOutside(false);
-                    loding.show();
-
 
                     Intent intent = new Intent(v.getContext() , MusicPlayerActivity.class);
                     intent.putExtra("songName",songName.getText().toString());
@@ -91,7 +91,6 @@ public class AdapterMusic  extends FirebaseRecyclerAdapter<ModelMusic , AdapterM
                     intent.putExtra("image" ,image.getText().toString());
                     v.getContext().startActivity(intent);
 
-                    loding.dismiss();
                 }
             } );
         }

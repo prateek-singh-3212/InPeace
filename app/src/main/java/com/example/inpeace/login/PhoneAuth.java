@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,8 +35,8 @@ import java.util.concurrent.TimeUnit;
 public class PhoneAuth extends AppCompatActivity {
 
     private Button phoneauthPhoneSendOtpBtn ;
-    private ConstraintLayout phoneauthPhoneCL;
-    private ConstraintLayout phoneauthOTPCL;
+    private LinearLayout phoneauthPhoneCL;
+    private LinearLayout phoneauthOTPCL;
     private Button phoneauthOTPVerifyBtn ;
     private EditText phoneauthPhonePhone;
     private EditText phoneauthOTPOTP ;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,21 +13,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.inpeace.activites.HomePage;
 import com.example.inpeace.audiobooks.audiobooks_MainActivity;
-import com.example.inpeace.games.Tic_Tac_Toe;
+import com.example.inpeace.games.games_homePage;
+import com.example.inpeace.motivation.mainMotivation;
 import com.example.inpeace.music.MainMusic;
+import com.example.inpeace.slideshow.slideshowAdapter;
 import com.google.android.material.navigation.NavigationView;
 
 public class main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private Button game ;
-    private Button audiobooks ;
-    private Button music ;
-    private Button motivation ;
-    private Button activites ;
+    private ViewPager pager;
+    private slideshowAdapter adapter;
     private DrawerLayout drawer;
 
     @Override
@@ -50,52 +51,11 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
 //                });
 
 
+        adapter = new slideshowAdapter(this);
 
-        game = findViewById(R.id.mainGameBtn);
-        music = findViewById(R.id.mainMusicBtn);
-        motivation = findViewById(R.id.mainMotivationBtn);
-        audiobooks = findViewById(R.id.mainAudiobooksBtn);
-        activites = findViewById(R.id.mainActivitesBtn);
+        pager = findViewById(R.id.slideShowPager);
+        pager.setAdapter(adapter);
 
-        game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( main.this , Tic_Tac_Toe.class);
-                startActivity(intent);
-            }
-        });
-
-        music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( main.this , MainMusic.class);
-                startActivity(intent);
-            }
-        });
-
-//        motivation.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent( main.this , MotivationHome.class);
-//                startActivity(intent);
-//            }
-//        });
-
-        audiobooks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(main.this, audiobooks_MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        activites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( main.this , HomePage.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -111,10 +71,10 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //Custom Icon
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_5g);
+//        Custom Icon
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_user_svgrepo_com);
     }
 
 
@@ -167,6 +127,43 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
             super.onBackPressed();
         }
 
+    }
+
+    public void openAudioBooks(View view) {
+        Intent intent = new Intent(main.this, audiobooks_MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openGames(View view) {
+        Intent intent = new Intent(main.this, games_homePage.class);
+        startActivity(intent);
+    }
+
+    public void openVideos(View view) {
+        Intent intent = new Intent(main.this, mainMotivation.class);
+        startActivity(intent);
+    }
+
+    public void openMusic(View view) {
+        Intent intent = new Intent(main.this, MainMusic.class);
+        startActivity(intent);
+    }
+
+    public void openTask(View view) {
+        Intent intent = new Intent( main.this , HomePage.class);
+                startActivity(intent);
+    }
+
+    public void openMotivation(View view) {
+
+    }
+
+    public void openConsultation(View view) {
+        Toast.makeText(this, "Coming Soon",Toast.LENGTH_SHORT).show();
+    }
+
+    public void openGlobalCommunication(View view) {
+        Toast.makeText(this, "Coming Soon",Toast.LENGTH_SHORT).show();
     }
 
 

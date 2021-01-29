@@ -76,7 +76,7 @@ public class Adapter extends FirebaseRecyclerAdapter<Model, Adapter.Viewholder >
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext() , MainVideoPlayer.class);
+                    Intent intent = new Intent(v.getContext() , videoPlayer.class);
                     intent.putExtra("Code",Code.getText().toString());
                     intent.putExtra("MiniURL",MiniURL.getText().toString());
                     intent.putExtra("Title" , Title.getText().toString());

@@ -11,4 +11,13 @@
     <string name="draw_res">Open</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="card1">Audio Books</string>
+    <string name="card2">Games</string>
+    <string name="card3">Videos</string>
+    <string name="card4">Music</string>
+    <string name="card5">Tasks</string>
+    <string name="card6">Motivaion</string>
+    <string name="card7">Consult</string>
+    <string name="card8">Global Chat</string>
 </resources>

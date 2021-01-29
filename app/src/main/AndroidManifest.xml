@@ -15,7 +15,10 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".audiobooks.audiobooks_MainActivity"></activity>
+        <activity android:name=".motivation.videoPlayer"></activity>
+        <activity android:name=".games.card_game" />
+        <activity android:name=".games.games_homePage" />
+        <activity android:name=".audiobooks.audiobooks_MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +43,7 @@
         <activity android:name=".login.PhoneAuth" />
         <activity android:name=".login.signup" />
         <activity android:name=".login.signin" />
-        <activity android:name=".login.HomePage"></activity>
+        <activity android:name=".login.HomePage" />
 
         <meta-data
             android:name="preloaded_fonts"

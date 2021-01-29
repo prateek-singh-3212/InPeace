@@ -26,7 +26,7 @@ public class HomePage extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private TextView textView;
-    public final String tableName = "htrhrt";
+    public final String tableName = "UserActivity1";
     private Button button;
 
     @Override
@@ -60,8 +60,8 @@ public class HomePage extends AppCompatActivity {
 //                database.getReadableDatabase();
                 for (DataSnapshot snap : snapshot.getChildren()){
                     Log.d("ABCDE",snap.child("Task").getValue().toString().trim() );
-                    boolean bool = database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
-                    Log.d("DO"," "+ bool);
+                    database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
+
 //                    if(bool == true)
 //                        Toast.makeText(HomePage.this , "Done" , Toast.LENGTH_LONG).show();
 //                    else

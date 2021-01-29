@@ -54,7 +54,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.311">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/phoneauthPhoneCL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -62,113 +63,94 @@
 
 
             <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25sp"
                 android:id="@+id/phoneauthTVPhonePhone"
                 android:layout_width="wrap_content"
+                android:layout_marginEnd="25sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="Please enter your phone number :"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhonePhone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="20dp" />
 
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/phoneauthPhoneCcp"
-                android:layout_width="wrap_content"
-                android:layout_height="46dp"
-                app:ccp_defaultNameCode="In"
-                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhoneSendOtpBtn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.063"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.815" />
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/phoneauthPhonePhone"
-                android:layout_width="237dp"
-                android:layout_height="46dp"
-                android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/phoneauthPhoneSendOtpBtn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.896"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.815" />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/phoneauthPhoneCcp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    app:ccp_defaultNameCode="In" />
+
+                <EditText
+                    android:id="@+id/phoneauthPhonePhone"
+                    android:layout_width="237dp"
+                    android:layout_height="46dp"
+                    android:inputType="number" />
+
+            </LinearLayout>
 
             <Button
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:id="@+id/phoneauthPhoneSendOtpBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send OTP"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.874" />
+                android:text="Send OTP" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/phoneauthOTPCL"
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="226dp"
             android:visibility="gone">
 
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
             <TextView
                 android:id="@+id/phoneauthTVOTPEnter"
                 android:layout_width="184dp"
                 android:layout_height="40dp"
                 android:text="Enter 6 DIGIT OTP :"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.166" />
+                android:textSize="20dp" />
+
 
             <EditText
                 android:id="@+id/phoneauthOTPOTP"
                 android:layout_width="282dp"
                 android:layout_height="42dp"
                 android:hint="OTP"
-                android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.472" />
+                android:inputType="number" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/phoneauthOTPVerifyBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verify"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.786" />
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical|center_horizontal" />
 
             <TextView
                 android:id="@+id/phoneauthTVOTPError"
                 android:layout_width="317dp"
                 android:layout_height="30dp"
-                android:text="Errors"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.959" />
+                android:text="Errors"/>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

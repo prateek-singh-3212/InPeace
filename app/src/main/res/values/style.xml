@@ -14,4 +14,5 @@
     <style name="AudioBookCardViewBackground">
         <item name="background">@drawable/ic_audiobook_cardview_background</item>
     </style>
+
 </resources>

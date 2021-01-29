@@ -17,9 +17,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class MainVideoPlayer extends AppCompatActivity {
 
-    private YouTubePlayerView youTubePlayerView;
     private VideoView view;
-    private YouTubePlayer.OnInitializedListener onInitializedListener;
     private TextView title;
 
     @Override
@@ -31,6 +29,8 @@ public class MainVideoPlayer extends AppCompatActivity {
 //        youTubePlayerView = findViewById(R.id.ytvideoplayer);
         title = findViewById(R.id.Title);
         title.setText(getIntent().getStringExtra("Title"));
+
+
 
         Uri uri = Uri.parse(getIntent().getStringExtra("MiniURL"));
         MediaController controller = new MediaController(this);

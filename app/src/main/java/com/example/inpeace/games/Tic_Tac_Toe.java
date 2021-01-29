@@ -2,6 +2,8 @@ package com.example.inpeace.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,8 +12,8 @@ import android.widget.TextView;
 import com.example.inpeace.R;
 
 public class Tic_Tac_Toe extends AppCompatActivity {
-
-
+    //103
+    AlertDialog.Builder alertBox;
 
     boolean gameActive = true;
     boolean winner = false;
@@ -34,16 +36,11 @@ public class Tic_Tac_Toe extends AppCompatActivity {
 
     public void playerTap(View view){
         ImageView img = (ImageView) view;
-
         int tappedImage = Integer.parseInt(img.getTag().toString());
         TextView xscore = findViewById(R.id.x_score);
         TextView oscore = findViewById(R.id.o_score);
 
-        if(!gameActive){
-            gameReset(view);
-        }
-
-        if(gameState[tappedImage] == 2 && gameActive) {
+        if(gameState[tappedImage] == 2) {
             gameState[tappedImage] = activePlayer;
             img.setTranslationY(-1000f);
             if (activePlayer == 0) {
@@ -71,32 +68,73 @@ public class Tic_Tac_Toe extends AppCompatActivity {
                 gameActive = false;
                 String winnerStr = "";
                 if(gameState[winPosition[0]] == 0){
-                    winnerStr = "X has won";
-                    winner = true;
                     score_x++;
+                    alertBox = new AlertDialog.Builder(this);
+                    alertBox.setTitle("\t\t\t\t\t\t\t\t\tSTATUS").setMessage("\nPlayer X: "+score_x+"\nPlayer O: "+score_o).setNeutralButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+                    alertBox = new AlertDialog.Builder(this);
+                    alertBox.setTitle("\t\t\t\t\t\t\t\t\tOoo X has Won!!").setMessage("\nCongrats to the Player X.\nPlayer O my Condolences. But, as they say \"Never Give Up!!\"").setNeutralButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            gameReset(view);
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+
+                    winner = true;
+
                     xscore.setText("X Score: "+score_x);
                 }
                 else{
-                    winnerStr = "O has won";
-                    winner = true;
                     score_o++;
+                    alertBox = new AlertDialog.Builder(this);
+                    alertBox.setTitle("\t\t\t\t\t\t\t\t\tSTATUS").setMessage("\nPlayer X: "+score_x+"\nPlayer O: "+score_o).setNeutralButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+                    alertBox = new AlertDialog.Builder(this);
+                    alertBox.setTitle("\t\t\t\t\t\t\t\t\tOooh O has Won!!").setMessage("\nCongrats to the Player O.\nPlayer X my Condolences. But, as they say \"Never Give Up!!\"").setNeutralButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            gameReset(view);
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+
+                    winner = true;
+
                     oscore.setText("O Score: "+score_o);
                 }
-                // Update the status bar for winner announcement
-                TextView status = findViewById(R.id.status);
-                status.setText(winnerStr);
+
             }
         }
 
-        if(count >= 8){
-            if(count == 9 && winner == false){
-                TextView status = findViewById(R.id.status);
-                status.setText("Tie");
-                gameActive = false;
-            }
-        }
 
-//        count++;    ////////////////////count++ even when existing place is tapped
+        if(count == 9 && winner == false) {
+            TextView status = findViewById(R.id.status);
+            status.setText("Tie");
+            alertBox = new AlertDialog.Builder(this);
+            alertBox.setTitle("\t\t\t\t\t\t\t\t\tAhhhhh Tie!").setMessage("\t\t\tAww It Was A Tie!\n\t\tGive it anoyher go...PLAY AGAIN??").setNeutralButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    gameReset(view);
+                    dialog.dismiss();
+                }
+            }).create().show();
+            alertBox = new AlertDialog.Builder(this);
+            alertBox.setTitle("\t\t\t\t\t\t\t\t\tSTATUS").setMessage("\nPlayer X: "+score_x+"\nPlayer O: "+score_o).setNeutralButton("yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            }).create().show();
+        }
     }
 
     public void gameReset(View view) {
@@ -130,6 +168,14 @@ public class Tic_Tac_Toe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic__tac__toe);
+        alertBox = new AlertDialog.Builder(this);
+
+        alertBox.setTitle("\t\t\t\t\t\t\t\t\tWELCOME").setMessage("You are well aware of this GAME :)!\n\t\t\tSo, go ahead play and enjoy").setNeutralButton("Start", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).create().show();
     }
 
     @Override

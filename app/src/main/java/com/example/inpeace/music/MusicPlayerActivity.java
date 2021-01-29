@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -51,6 +52,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private NotificationManagerCompat manager;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,28 +69,32 @@ public class MusicPlayerActivity extends AppCompatActivity {
         playpausebuttonMusic = findViewById(R.id.playpausebuttonMusic);
         mainPlayerseekbar = findViewById(R.id.mainPlayerseekbar);
         player = new MediaPlayer();
-        progressBar = findViewById(R.id.musicPlayerLoading);
         manager = NotificationManagerCompat.from(this);
+        progressBar = findViewById(R.id.musicPlayerLoading);
 
-        notificationMusic();
+       // notificationMusic();
         progressBar = new ProgressBar(this);
+        progressBar.setVisibility(View.VISIBLE);
 
         mainPlayerseekbar.setMax(100);
 
+      //  preparemediaplayer(getIntent().getStringExtra("URL"));
+
+//        Handler handler1 = new Handler(Looper.getMainLooper());
+//        handler1.post(preparePlayer);
+
+        //Set song Image
         Picasso.get().load(getIntent().getStringExtra("image")).into(songImage);
+
+
+
+
+        preparemediaplayer(getIntent().getStringExtra("URL"));
+
+        //Play Pause button of Music
         playpausebuttonMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        progressBar.setVisibility(View.INVISIBLE);
-                    }
-                });
-
-
-                preparemediaplayer(getIntent().getStringExtra("URL"));
 //                totaltimesongTVMusic.setText(player.getDuration());
                 if(player.isPlaying()){
                     handler.removeCallbacks(updater);
@@ -123,6 +130,23 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     }
 
+    private  Runnable preparePlayer = new Runnable() {
+        @Override
+        public void run() {
+
+            progressBar = findViewById(R.id.musicPlayerLoading);
+
+            // notificationMusic();
+            progressBar = new ProgressBar(MusicPlayerActivity.this);
+            progressBar.setVisibility(View.VISIBLE);
+            playpausebuttonMusic.setVisibility(View.INVISIBLE);
+
+            preparemediaplayer(getIntent().getStringExtra("URL"));
+
+            progressBar.setVisibility(View.INVISIBLE);
+            playpausebuttonMusic.setVisibility(View.VISIBLE);
+        }
+    };
 
     public String  millisecondtosecond(long millisecond){
         String timerstring = "";
@@ -163,13 +187,21 @@ public class MusicPlayerActivity extends AppCompatActivity {
         }
     };
 
+    private void progressBar(){
+        if(player.isPlaying()){
+            progressBar.setVisibility(View.INVISIBLE);
+        }else {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void preparemediaplayer(String URL){
         try {
             player.setDataSource(URL);
-            player.prepare();
+            player.prepareAsync();
             totaltimesongTVMusic.setText(player.getDuration());
         }catch (Exception e){
-            Toast.makeText(MusicPlayerActivity.this , e.toString() , Toast.LENGTH_LONG).show();
+            Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
         }
     }
 
@@ -198,15 +230,15 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        miniPlayer= findViewById(R.id.miniMusicPlayer);
-        if(keyCode == event.KEYCODE_BACK){
-            miniPlayer.setVisibility(View.VISIBLE);
-        }
-       // player.stop();
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        miniPlayer= findViewById(R.id.miniMusicPlayer);
+//        if(keyCode == event.KEYCODE_BACK){
+//            player.stop();
+//            miniPlayer.setVisibility(View.VISIBLE);
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     public void notificationMusic(){
 

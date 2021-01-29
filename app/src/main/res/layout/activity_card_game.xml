@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#113A17"
+    tools:context=".games.card_game">
+
+    <ImageView
+        android:id="@+id/comp1"
+        android:layout_width="90dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="68dp"
+        android:rotation="-15.0"
+        android:rotationX="-5.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/comp2"
+        android:layout_width="90dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="60dp"
+        android:rotationX="-5.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/pile"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:onClick="tapOnPile"
+        android:rotationX="12.0"
+        app:layout_constraintBottom_toTopOf="@+id/user2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comp2"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="130dp"
+        android:layout_height="260dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/pile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:rotation="-95"
+            android:rotationX="18"
+            android:rotationY="4"
+            app:srcCompat="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:rotation="-95"
+            android:rotationX="18"
+            android:rotationY="4"
+            app:srcCompat="@drawable/deck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="170dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/upCard1"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:onClick="returnCard1"
+            android:rotationX="-20.0" />
+
+        <ImageView
+            android:id="@+id/up_Card2"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:onClick="returnCard2"
+            android:rotationX="-20.0" />
+
+        <ImageView
+            android:id="@+id/up_Card3"
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:onClick="returnCard3"
+            android:rotationX="-20.0" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/user1"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="tapUserCard1"
+        android:rotation="-18.0"
+        android:rotationX="-20.0"
+        android:rotationY="7.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/user2"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="88dp"
+        android:onClick="tapUserCard2"
+        android:rotationX="-20.0"
+        android:rotationY="360"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/user3"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="tapUserCard3"
+        android:rotation="15.0"
+        android:rotationX="-20.0"
+        android:rotationY="-7.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/comp3"
+        android:layout_width="90dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginRight="90dp"
+        android:rotation="15.0"
+        android:rotationX="-5.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/compPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Computer:"
+        android:textColor="#EB00BCD4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="User:"
+        android:textColor="#E200BCD4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

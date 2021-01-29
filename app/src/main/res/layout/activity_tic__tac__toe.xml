@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF5722"
+    android:background="#00448A"
     tools:context=".games.Tic_Tac_Toe">
 
     <ImageView
@@ -43,8 +43,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
                 android:paddingLeft="20sp"
+                android:paddingTop="18sp"
+                android:paddingBottom="18sp"
                 android:tag="0" />
 
             <ImageView
@@ -53,7 +54,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
+                android:paddingTop="18sp"
+                android:paddingBottom="18sp"
                 android:tag="1" />
 
             <ImageView
@@ -62,8 +64,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
+                android:paddingTop="18sp"
                 android:paddingRight="20sp"
+                android:paddingBottom="18sp"
                 android:tag="2" />
         </LinearLayout>
 
@@ -118,7 +121,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
+                android:paddingLeft="20sp"
+                android:paddingTop="18sp"
                 android:paddingBottom="20sp"
                 android:tag="6" />
 
@@ -128,7 +132,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
+                android:paddingTop="18sp"
                 android:paddingBottom="20sp"
                 android:tag="7" />
 
@@ -138,8 +142,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="playerTap"
-                android:padding="18sp"
-                android:paddingBottom="20sp"
+                android:paddingTop="18sp"
+                android:paddingRight="20sp"
+                android:paddingBottom="18sp"
                 android:tag="8" />
         </LinearLayout>
 
@@ -152,7 +157,7 @@
         android:layout_marginBottom="15dp"
         android:paddingBottom="20sp"
         android:text="@string/status"
-        android:textColor="#000000"
+        android:textColor="#F6F5F5"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -175,7 +180,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/x_score"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="parent" />
@@ -185,7 +190,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/o_score"
-        android:textColor="#040404"
+        android:textColor="#FFFEFE"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView9" />
