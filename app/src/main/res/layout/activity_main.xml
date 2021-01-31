@@ -63,8 +63,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="220dp"
                                 android:layout_marginTop="15dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginEnd="10dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.495"
@@ -91,19 +89,22 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="105dp"
-                                        android:layout_height="match_parent"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_gravity="center"
                                         android:layout_marginLeft="20dp"
-                                        android:src="@drawable/soundlogo">
-
-                                    </ImageView>
+                                        android:src="@drawable/soundlogo"></ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="90dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card1"
-                                        android:textSize="50sp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -130,20 +131,24 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
                                         android:src="@drawable/gameslogo">
 
                                     </ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="80dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card2"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -151,45 +156,49 @@
 
                             </androidx.cardview.widget.CardView>
 
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/videos"
-                                android:layout_width="match_parent"
-                                android:layout_height="121dp"
-                                android:onClick="openVideos"
-                                android:clickable="true"
-                                android:layout_marginTop="29dp"
-                                app:cardCornerRadius="30dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/games">
+<!--                            <androidx.cardview.widget.CardView-->
+<!--                                android:id="@+id/videos"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="121dp"-->
+<!--                                android:onClick="openVideos"-->
+<!--                                android:clickable="true"-->
+<!--                                android:layout_marginTop="29dp"-->
+<!--                                app:cardCornerRadius="30dp"-->
+<!--                                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                app:layout_constraintHorizontal_bias="1.0"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/games">-->
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@drawable/gradient_mainpage_cardviw">
+<!--                                <LinearLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="match_parent"-->
+<!--                                    android:background="@drawable/gradient_mainpage_cardviw">-->
 
-                                    <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
-                                        android:src="@drawable/videologo">
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="80dp"-->
+<!--                                        android:layout_height="80dp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:layout_marginLeft="20dp"-->
+<!--                                        android:src="@drawable/videologo">-->
 
-                                    </ImageView>
+<!--                                    </ImageView>-->
 
-                                    <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="85dp"
-                                        android:layout_marginTop="20dp"
-                                        android:text="@string/card3"
-                                        android:textSize="50dp">
+<!--                                    <TextView-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:layout_marginLeft="30dp"-->
+<!--                                        android:layout_marginRight="20dp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:fontFamily="@font/montserrat"-->
+<!--                                        android:text="@string/card3"-->
+<!--                                        android:textColor="@color/black"-->
+<!--                                        android:textSize="35dp">-->
 
-                                    </TextView>
+<!--                                    </TextView>-->
 
-                                </LinearLayout>
+<!--                                </LinearLayout>-->
 
-                            </androidx.cardview.widget.CardView>
+<!--                            </androidx.cardview.widget.CardView>-->
 
                             <androidx.cardview.widget.CardView
                                 android:id="@+id/music"
@@ -210,18 +219,22 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
                                         app:srcCompat="@drawable/ic_music_new"/>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="90dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card4"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -248,20 +261,24 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
                                         android:src="@drawable/taskslogo">
 
                                     </ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="85dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card5"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -288,18 +305,23 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
-                                        app:srcCompat="@drawable/ic_inspiration"></ImageView>
+                                        android:layout_gravity="center"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_marginLeft="20dp"
+                                        app:srcCompat="@drawable/ic_inspiration">
+                                    </ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="40dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card6"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -326,18 +348,23 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
-                                        app:srcCompat="@drawable/ic_consulting"></ImageView>
+                                        android:layout_gravity="center"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_marginLeft="20dp"
+                                        app:srcCompat="@drawable/ic_consulting">
+                                    </ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="60dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card7"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -364,18 +391,23 @@
                                     android:background="@drawable/gradient_mainpage_cardviw">
 
                                     <ImageView
-                                        android:layout_width="115dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
-                                        app:srcCompat="@drawable/ic_global_communication"></ImageView>
+                                        android:layout_gravity="center"
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:layout_marginLeft="20dp"
+                                        app:srcCompat="@drawable/ic_global_communication">
+                                    </ImageView>
 
                                     <TextView
-                                        android:layout_width="262dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginLeft="15dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/montserrat"
                                         android:text="@string/card8"
-                                        android:textSize="50dp">
+                                        android:textColor="@color/black"
+                                        android:textSize="35dp">
 
                                     </TextView>
 
@@ -384,65 +416,6 @@
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
         </ScrollView>
-        <!--        <Button-->
-        <!--            android:id="@+id/mainGameBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Games"-->
-
-
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.733"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.425" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/mainAudiobooksBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="AudioBooks"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.185"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.425" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/mainMusicBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Music"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.528" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/mainMotivationBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Motivation"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.663" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/mainActivitesBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Activites"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.498"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:layout_constraintVertical_bias="0.777" />-->
 
 
     </RelativeLayout>

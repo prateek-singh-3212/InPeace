@@ -68,21 +68,21 @@ public class Adapter extends FirebaseRecyclerAdapter<Model, Adapter.Viewholder >
         public Viewholder(@NonNull View itemView , OnItemClickListener listener) {
             super(itemView);
 
-            MiniURL = itemView.findViewById(R.id.MiniURL);
-            Code = itemView.findViewById(R.id.Code);
-            Title = itemView.findViewById(R.id.Title);
-            ThumbnailVideo = itemView.findViewById((R.id.motivationThumbnail));
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext() , videoPlayer.class);
-                    intent.putExtra("Code",Code.getText().toString());
-                    intent.putExtra("MiniURL",MiniURL.getText().toString());
-                    intent.putExtra("Title" , Title.getText().toString());
-                    v.getContext().startActivity(intent);
-                }
-            });
+//            MiniURL = itemView.findViewById(R.id.MiniURL);
+//            Code = itemView.findViewById(R.id.Code);
+//            Title = itemView.findViewById(R.id.Title);
+//            ThumbnailVideo = itemView.findViewById((R.id.motivationThumbnail));
+//
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(v.getContext() , videoPlayer.class);
+//                    intent.putExtra("Code",Code.getText().toString());
+//                    intent.putExtra("MiniURL",MiniURL.getText().toString());
+//                    intent.putExtra("Title" , Title.getText().toString());
+//                    v.getContext().startActivity(intent);
+//                }
+//            });
 
         }
     }

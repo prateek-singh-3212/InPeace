@@ -2,6 +2,8 @@ package com.example.inpeace;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,10 @@ import com.example.inpeace.activites.HomePage;
 import com.example.inpeace.audiobooks.audiobooks_MainActivity;
 import com.example.inpeace.games.games_homePage;
 import com.example.inpeace.motivation.mainMotivation;
+import com.example.inpeace.motivation.newLayout.motivation_home;
+import com.example.inpeace.motivation.newlayout2.motivation_2;
 import com.example.inpeace.music.MainMusic;
+import com.example.inpeace.music.newLayout.NewMusicLayout;
 import com.example.inpeace.slideshow.slideshowAdapter;
 import com.google.android.material.navigation.NavigationView;
 
@@ -29,6 +34,7 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     private ViewPager pager;
     private slideshowAdapter adapter;
     private DrawerLayout drawer;
+    private boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,11 +127,31 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public void onBackPressed() {
 
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (exit) {
+            finish();
         } else {
-            super.onBackPressed();
+            Toast.makeText(this, "Press back again to exit",
+                    Toast.LENGTH_SHORT).show();
+            //
+            drawer.closeDrawer(GravityCompat.START);
+
+
+            exit = true;
+            new CountDownTimer(3000,1000) {
+
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    exit = false;
+                }
+            }.start();
         }
+
+
 
     }
 
@@ -140,8 +166,7 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openVideos(View view) {
-        Intent intent = new Intent(main.this, mainMotivation.class);
-        startActivity(intent);
+
     }
 
     public void openMusic(View view) {
@@ -155,7 +180,8 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openMotivation(View view) {
-
+        Intent intent = new Intent(main.this, motivation_2.class);
+        startActivity(intent);
     }
 
     public void openConsultation(View view) {
@@ -166,9 +192,4 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
         Toast.makeText(this, "Coming Soon",Toast.LENGTH_SHORT).show();
     }
 
-
-//    public void profileFragment(MenuItem item) {
-//        getSupportFragmentManager().beginTransaction().replace(R.id.navFragmentContainer,new profile())
-//                .commit();
-//    }
 }

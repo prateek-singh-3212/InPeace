@@ -13,7 +13,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardView3"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:elevation="25sp"
@@ -26,6 +26,7 @@
             app:layout_constraintVertical_bias="0.197">
 
             <ImageView
+                android:id="@+id/newMusic_miniImage"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:src="@drawable/logo"
@@ -40,6 +41,31 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/newMusic_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ur"
+            android:visibility="invisible"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/newMusic_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ur"
+            android:visibility="invisible"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/newMusic_SongName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"

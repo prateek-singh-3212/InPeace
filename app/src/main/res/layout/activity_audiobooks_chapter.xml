@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom|center"
+    android:layout_height="match_parent"
+    android:background="@drawable/books1"
+    tools:context=".audiobooks.audiobooks_chapter">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="35dp"
+        app:cardBackgroundColor="#B3FFFFFF"
+        app:cardCornerRadius="41dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/audioBooks_chapter_RV"
+            android:layout_marginRight="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

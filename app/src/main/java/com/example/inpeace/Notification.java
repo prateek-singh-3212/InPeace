@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Notification extends Application {
 
     public static final String PLAYER_ID = "player";
+    public static final String ACTION_PLAY = "Play";
+    public static final String ACTION_PREVIOUS ="Previous";
+    public static final String ACTION_NEXT = "Next";
 
     @Override
     public void onCreate() {

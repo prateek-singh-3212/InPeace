@@ -15,7 +15,16 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".motivation.videoPlayer"></activity>
+        <activity
+            android:name=".motivation.newlayout2.motivation_2"
+            android:label="@string/title_activity_motivation_2"
+            android:theme="@style/Theme.InPeace.NoActionBar"></activity>
+        <activity
+            android:name=".motivation.newLayout.motivation_home"
+            android:label="@string/title_activity_motivation_home"
+            android:theme="@style/Theme.InPeace.NoActionBar" />
+        <activity android:name=".audiobooks.audiobooks_chapter" />
+        <activity android:name=".motivation.videoPlayer" />
         <activity android:name=".games.card_game" />
         <activity android:name=".games.games_homePage" />
         <activity android:name=".audiobooks.audiobooks_MainActivity" />

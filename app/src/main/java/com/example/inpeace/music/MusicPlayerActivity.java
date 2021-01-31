@@ -1,25 +1,14 @@
 package com.example.inpeace.music;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.KeyEvent;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -29,12 +18,22 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import com.example.inpeace.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+import com.example.inpeace.music.newLayout.NotificationReciver;
 import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import static com.example.inpeace.Notification.ACTION_NEXT;
+import static com.example.inpeace.Notification.ACTION_PLAY;
+import static com.example.inpeace.Notification.ACTION_PREVIOUS;
 import static com.example.inpeace.Notification.PLAYER_ID;
 
 public class MusicPlayerActivity extends AppCompatActivity {
@@ -51,6 +50,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     private CardView miniPlayer;
     private ProgressBar progressBar;
     private NotificationManagerCompat manager;
+    private MediaSessionCompat mediaSessionCompat;
 
 
 
@@ -58,27 +58,29 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
-        urlholder = findViewById(R.id.URL_HOLDER);
+//        urlholder = findViewById(R.id.URL_HOLDER);
 
         songImage = findViewById(R.id.SongImage);
         SongName = findViewById(R.id.songplayingnameTVMusic);
         SongName.setText(getIntent().getStringExtra("songName"));
-        urlholder.setText(getIntent().getStringExtra("URL"));
+//        urlholder.setText(getIntent().getStringExtra("URL"));
         currenttimesongTVMusic = findViewById(R.id.currenttimesongTVMusic);
         totaltimesongTVMusic = findViewById(R.id.totaltimesongTVMusic);
         playpausebuttonMusic = findViewById(R.id.playpausebuttonMusic);
         mainPlayerseekbar = findViewById(R.id.mainPlayerseekbar);
         player = new MediaPlayer();
         manager = NotificationManagerCompat.from(this);
-        progressBar = findViewById(R.id.musicPlayerLoading);
 
-       // notificationMusic();
-        progressBar = new ProgressBar(this);
-        progressBar.setVisibility(View.VISIBLE);
+        mediaSessionCompat = new MediaSessionCompat(this, "MEDIA SESSION");
+        // progressBar = findViewById(R.id.musicPlayerLoading);
+
+        // notificationMusic();
+//        progressBar = new ProgressBar(this);
+//        progressBar.setVisibility(View.VISIBLE);
 
         mainPlayerseekbar.setMax(100);
 
-      //  preparemediaplayer(getIntent().getStringExtra("URL"));
+        //  preparemediaplayer(getIntent().getStringExtra("URL"));
 
 //        Handler handler1 = new Handler(Looper.getMainLooper());
 //        handler1.post(preparePlayer);
@@ -90,6 +92,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
 
         preparemediaplayer(getIntent().getStringExtra("URL"));
+        Toast.makeText(this,"prepared",Toast.LENGTH_SHORT).show();
 
         //Play Pause button of Music
         playpausebuttonMusic.setOnClickListener(new View.OnClickListener() {
@@ -99,11 +102,13 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 if(player.isPlaying()){
                     handler.removeCallbacks(updater);
                     player.pause();
-                    playpausebuttonMusic.setImageResource(R.drawable.ic_play);
+                    playpausebuttonMusic.setImageResource(R.drawable.new_music_pause);
+                    notificationMusic(R.drawable.ic_play);
                 }else {
                     player.start();
                     playpausebuttonMusic.setImageResource(R.drawable.ic_pause);
                     updateSeekBar();
+                    notificationMusic(R.drawable.ic_pause);
                 }
             }
         });
@@ -134,16 +139,16 @@ public class MusicPlayerActivity extends AppCompatActivity {
         @Override
         public void run() {
 
-            progressBar = findViewById(R.id.musicPlayerLoading);
+            //progressBar = findViewById(R.id.musicPlayerLoading);
 
             // notificationMusic();
-            progressBar = new ProgressBar(MusicPlayerActivity.this);
-            progressBar.setVisibility(View.VISIBLE);
+//            progressBar = new ProgressBar(MusicPlayerActivity.this);
+//            progressBar.setVisibility(View.VISIBLE);
             playpausebuttonMusic.setVisibility(View.INVISIBLE);
 
             preparemediaplayer(getIntent().getStringExtra("URL"));
 
-            progressBar.setVisibility(View.INVISIBLE);
+//            progressBar.setVisibility(View.INVISIBLE);
             playpausebuttonMusic.setVisibility(View.VISIBLE);
         }
     };
@@ -201,7 +206,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
             player.prepareAsync();
             totaltimesongTVMusic.setText(player.getDuration());
         }catch (Exception e){
-            Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
+           // Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
         }
     }
 
@@ -240,29 +245,62 @@ public class MusicPlayerActivity extends AppCompatActivity {
 //        return super.onKeyDown(keyCode, event);
 //    }
 
-    public void notificationMusic(){
+    public void notificationMusic(int PlayPauseBtn) {
+        Bitmap bitmap = null;
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.logo_splash);
-//
-//        PendingIntent intent = new PendingIntent(this,trail_music.class);
+        try {
+            URL urlImage = new URL(getIntent().getStringExtra("URL"));
+             bitmap = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        Notification notification = new NotificationCompat.Builder(MusicPlayerActivity.this,PLAYER_ID)
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setSmallIcon(R.drawable.logo_splash)
-//                .addAction(R.drawable.ic_new_pause,"Pause",intent)
-//                .setStyle(new Notification.MediaStyle()
-//                        .setShowActionsInCompactView(1 /* #1: pause button */)
-//                        .setMediaSession(player.getSessionToken()))
+            Intent intent = new Intent(this, MusicPlayerActivity.class);
+            PendingIntent onClick = PendingIntent.getBroadcast(this, 0, intent, 0);
 
-                .setContentTitle("NAME")
-                .setContentText("Title")
+            Intent playIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_PLAY);
+            PendingIntent playPendingIntent = PendingIntent.getBroadcast(this, 0, playIntent, 0);
 
-                .setLargeIcon(bitmap)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .build();
+            Intent previousIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_PREVIOUS);
+            PendingIntent previousPendingIntent = PendingIntent.getBroadcast(this, 0, previousIntent, 0);
 
-        manager.notify(1,notification);
+            Intent nextIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_NEXT);
+            PendingIntent nextPendingIntent = PendingIntent.getBroadcast(this, 0, nextIntent, 0);
+
+
+            Notification notification = new NotificationCompat.Builder(MusicPlayerActivity.this, PLAYER_ID)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                    .setSmallIcon(R.drawable.logo_splash)
+                    .addAction(R.drawable.ic_skip_previous, "PREVIOUS", previousPendingIntent)
+                    .addAction(PlayPauseBtn, "PLAY", playPendingIntent)
+                    .addAction(R.drawable.ic_skip_next, "NEXT", nextPendingIntent)
+                    .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
+                            .setMediaSession(mediaSessionCompat.getSessionToken()))
+                    .setContentTitle(getIntent().getStringExtra("songName"))
+                    //.setContentText(getIntent().getStringExtra(""))
+                    .setOngoing(true)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                    .setLargeIcon(bitmap)
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
+                    .setContentIntent(onClick)
+                    .setOnlyAlertOnce(true)
+                    .build();
+
+            manager.notify(1, notification);
+
+        new Handler().post(new Runnable() {
+
+
+            @Override
+            public void run() {
+
+                finish();
+            }
+        });
 
     }
+
 
 }

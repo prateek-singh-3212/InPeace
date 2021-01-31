@@ -7,33 +7,45 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_musicbacknew">
 
-    <TextView
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Most Liked"
-        android:textColor="@color/MusicFont"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:fontFamily="@font/montserrat"
-        android:text="New Arrivals"
-        android:textColor="@color/MusicFont"
-        android:textSize="20sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/newMusic_category_RV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transperent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+<!--    <TextView-->
+<!--        android:layout_width="114dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="Most Liked"-->
+<!--        android:textColor="@color/MusicFont"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.053"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.057" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:fontFamily="@font/montserrat"-->
+<!--        android:text="New Arrivals"-->
+<!--        android:textColor="@color/MusicFont"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.053"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.445" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

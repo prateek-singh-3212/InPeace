@@ -45,6 +45,7 @@ public class AdapterMusic  extends FirebaseRecyclerAdapter<ModelMusic , AdapterM
     @Override
     protected void onBindViewHolder(@NonNull Viewholder holder, int position, @NonNull ModelMusic model) {
        holder.songName.setText(model.getSongname());
+       Log.d("ABC"," " +model.getSongURL());
        holder.url.setText(model.getSongURL());
        holder.image.setText(model.getSongImage());
        Picasso.get().load(model.getSongImage()).into(holder.miniImageSong);

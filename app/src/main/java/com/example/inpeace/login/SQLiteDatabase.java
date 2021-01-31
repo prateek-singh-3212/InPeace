@@ -59,8 +59,8 @@ public class SQLiteDatabase extends SQLiteOpenHelper {
         cursor.moveToFirst();
         int in = cursor.getInt(cursor.getColumnIndex("UserId"));
         if(in == 1 ){
-            String Querry1 = "SELECT UserID as 'UserId' FROM loginStatus where LoginStatus = 'true'";
-            Cursor cursor1 = database.rawQuery(Querry1,null);
+//            String Querry1 = "SELECT UserID as 'UserId' FROM loginStatus where LoginStatus = 'true'";
+//            Cursor cursor1 = database.rawQuery(Querry1,null);
             cursor.moveToFirst();
             return true;
         }else {

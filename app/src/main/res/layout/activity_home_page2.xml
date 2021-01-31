@@ -7,39 +7,116 @@
     tools:context=".activites.HomePage">
 
 
-    <Button
-        android:id="@+id/Button"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/time"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="ABC"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="5dp"
+        android:gravity ="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/time1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data Here"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_task_time"></ImageView>
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="90dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:text="@string/time"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FD001F68"></ImageView>
+
+        <Button
+            android:id="@+id/Button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="ABC"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:layout_width="120dp"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_marginTop="2dp"-->
+        <!--            app:cardBackgroundColor="#FF7E7E"-->
+        <!--            app:cardCornerRadius="30dp">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginTop="8dp"-->
+        <!--                android:text="SUBMIT"-->
+        <!--                android:textColor="#440000"-->
+        <!--                android:textSize="20dp"-->
+        <!--                android:textStyle="bold"></TextView>-->
+        <!--        </androidx.cardview.widget.CardView>-->
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    <Button-->
+    <!--        android:id="@+id/Button"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:text="ABC"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.151"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.976" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/time1"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Data Here"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.828"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.957" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        app:layout_constraintBottom_toTopOf="@+id/Button"
+        android:layout_height="720dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:gravity= "center"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/time"
+        app:layout_constraintVertical_bias="0.485" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

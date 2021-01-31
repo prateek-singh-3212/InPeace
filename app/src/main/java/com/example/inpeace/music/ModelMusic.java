@@ -1,6 +1,5 @@
 package com.example.inpeace.music;
 
-import java.util.Scanner;
 
 public class ModelMusic {
     private String Songname ;

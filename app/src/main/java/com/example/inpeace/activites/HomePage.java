@@ -50,36 +50,36 @@ public class HomePage extends AppCompatActivity {
     public void mainWorking(){
 
         Database database = new Database(HomePage.this);
-
-        FirebaseDatabase.getInstance().getReference().child("activity").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Database database = new Database(HomePage.this);
-                database.create_our_activity_table();
-                textView.setText(database.current_time());
-//                database.getReadableDatabase();
-                for (DataSnapshot snap : snapshot.getChildren()){
-                    Log.d("ABCDE",snap.child("Task").getValue().toString().trim() );
-                    database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
-
-//                    if(bool == true)
-//                        Toast.makeText(HomePage.this , "Done" , Toast.LENGTH_LONG).show();
-//                    else
-//                        Toast.makeText(HomePage.this , "Failed" , Toast.LENGTH_LONG).show();
-                }
-
-                database.close();
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomePage.this , "Connection Failed!" , Toast.LENGTH_LONG).show();
-            }
-        });
+//
+//        FirebaseDatabase.getInstance().getReference().child("activity").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Database database = new Database(HomePage.this);
+//                database.create_our_activity_table();
+//                textView.setText(database.current_time());
+////                database.getReadableDatabase();
+//                for (DataSnapshot snap : snapshot.getChildren()){
+//                    Log.d("ABCDE",snap.child("Task").getValue().toString().trim() );
+//                    database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
+//
+////                    if(bool == true)
+////                        Toast.makeText(HomePage.this , "Done" , Toast.LENGTH_LONG).show();
+////                    else
+////                        Toast.makeText(HomePage.this , "Failed" , Toast.LENGTH_LONG).show();
+//                }
+//
+//                database.close();
+//
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(HomePage.this , "Connection Failed!" , Toast.LENGTH_LONG).show();
+//            }
+//        });
         database.create_user_table(tableName);
         print_tasks();
 
-        database.close();
+//        database.close();
     }
 
 
@@ -129,5 +129,39 @@ public class HomePage extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         database.close();
 
+    }
+
+    @Override
+    protected void onStart() {
+        Database database = new Database(HomePage.this);
+
+        FirebaseDatabase.getInstance().getReference().child("activity").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Database database = new Database(HomePage.this);
+                database.create_our_activity_table();
+                textView.setText(database.current_time());
+//                database.getReadableDatabase();
+                for (DataSnapshot snap : snapshot.getChildren()){
+                    Log.d("ABCDE",snap.child("Task").getValue().toString().trim() );
+                    database.insert_Value_In_OurActivity(snap.child("Task").getValue().toString().trim() ,snap.child("Code").getValue().toString().trim());
+
+//                    if(bool == true)
+//                        Toast.makeText(HomePage.this , "Done" , Toast.LENGTH_LONG).show();
+//                    else
+//                        Toast.makeText(HomePage.this , "Failed" , Toast.LENGTH_LONG).show();
+                }
+
+                Toast.makeText(HomePage.this,"Data Prepared", Toast.LENGTH_LONG).show();
+
+                database.close();
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomePage.this , "Connection Failed!" , Toast.LENGTH_LONG).show();
+            }
+        });
+        super.onStart();
     }
 }
