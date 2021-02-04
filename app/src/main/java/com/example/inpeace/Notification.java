@@ -29,7 +29,7 @@ public class Notification extends Application {
         NotificationChannel channel = new NotificationChannel(
                 PLAYER_ID,
                 "Player",
-                NotificationManager.IMPORTANCE_HIGH
+                NotificationManager.IMPORTANCE_LOW
         );
 
         NotificationManager manager = getSystemService(NotificationManager.class);

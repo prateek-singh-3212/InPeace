@@ -71,10 +71,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         Log.d("ABCDEF","options");
         MusicAdapter adapter = new MusicAdapter(musicModel);
+        adapter.startListening();
         recycleView.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
         recycleView.setAdapter(adapter);
         Log.d("ABCDEF","adapter");
 
 
     }
+
 }

@@ -103,12 +103,12 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     handler.removeCallbacks(updater);
                     player.pause();
                     playpausebuttonMusic.setImageResource(R.drawable.new_music_pause);
-                    notificationMusic(R.drawable.ic_play);
+//                    notificationMusic(R.drawable.ic_play);
                 }else {
                     player.start();
                     playpausebuttonMusic.setImageResource(R.drawable.ic_pause);
                     updateSeekBar();
-                    notificationMusic(R.drawable.ic_pause);
+//                    notificationMusic(R.drawable.ic_pause);
                 }
             }
         });
@@ -204,7 +204,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
         try {
             player.setDataSource(URL);
             player.prepareAsync();
-            totaltimesongTVMusic.setText(player.getDuration());
+         //   totaltimesongTVMusic.setText(player.getDuration());
+            Toast.makeText(this,"prepared",Toast.LENGTH_SHORT).show();
+
         }catch (Exception e){
            // Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
         }
@@ -246,16 +248,16 @@ public class MusicPlayerActivity extends AppCompatActivity {
 //    }
 
     public void notificationMusic(int PlayPauseBtn) {
-        Bitmap bitmap = null;
-
-        try {
-            URL urlImage = new URL(getIntent().getStringExtra("URL"));
-             bitmap = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Bitmap bitmap = null;
+//
+//        try {
+//            URL urlImage = new URL(getIntent().getStringExtra("URL"));
+//             bitmap = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
             Intent intent = new Intent(this, MusicPlayerActivity.class);
             PendingIntent onClick = PendingIntent.getBroadcast(this, 0, intent, 0);
@@ -282,7 +284,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     //.setContentText(getIntent().getStringExtra(""))
                     .setOngoing(true)
                     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                    .setLargeIcon(bitmap)
+//                    .setLargeIcon(bitmap)
                     .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setContentIntent(onClick)
                     .setOnlyAlertOnce(true)

@@ -22,7 +22,6 @@ import com.example.inpeace.audiobooks.audiobooks_MainActivity;
 import com.example.inpeace.games.games_homePage;
 import com.example.inpeace.motivation.mainMotivation;
 import com.example.inpeace.motivation.newLayout.motivation_home;
-import com.example.inpeace.motivation.newlayout2.motivation_2;
 import com.example.inpeace.music.MainMusic;
 import com.example.inpeace.music.newLayout.NewMusicLayout;
 import com.example.inpeace.slideshow.slideshowAdapter;
@@ -170,7 +169,7 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openMusic(View view) {
-        Intent intent = new Intent(main.this, MainMusic.class);
+        Intent intent = new Intent(main.this, NewMusicLayout.class);
         startActivity(intent);
     }
 
@@ -180,7 +179,7 @@ public class main extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openMotivation(View view) {
-        Intent intent = new Intent(main.this, motivation_2.class);
+        Intent intent = new Intent(main.this, motivation_home.class);
         startActivity(intent);
     }
 

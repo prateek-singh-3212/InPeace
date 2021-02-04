@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -11,10 +11,10 @@
         android:background="#43FFFFFF">
         <ImageView
             android:id="@+id/quotes_image"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            app:srcCompat="@drawable/abv">
-        </ImageView>
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/abv"/>
     </androidx.cardview.widget.CardView>
 
 </androidx.cardview.widget.CardView>

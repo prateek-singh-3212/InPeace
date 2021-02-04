@@ -15,4 +15,9 @@
         <item name="background">@drawable/ic_audiobook_cardview_background</item>
     </style>
 
+    <style name="audiobooButton">
+        <item name="colorPrimary">#E7E7E7</item>
+        <item name="background">@drawable/ic_audiobook_button</item>
+    </style>
+
 </resources>

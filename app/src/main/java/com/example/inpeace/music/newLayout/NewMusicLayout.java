@@ -11,6 +11,7 @@ import android.view.View;
 import com.example.inpeace.R;
 import com.example.inpeace.music.MusicPlayerActivity;
 import com.example.inpeace.music.newLayout.Adapter.CategoryAdapter;
+import com.example.inpeace.music.newLayout.Adapter.MusicAdapter;
 import com.example.inpeace.music.newLayout.Model.CategoryModel;
 import com.example.inpeace.music.newLayout.Model.MusicModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -23,6 +24,7 @@ public class NewMusicLayout extends AppCompatActivity {
 
     private RecyclerView category_RV;
     private List<CategoryModel> categoryModel;
+    private MusicAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class NewMusicLayout extends AppCompatActivity {
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("music"), MusicModel.class)
                 .build();
 
-
+      //   adapter = new MusicAdapter(options);
         category_RV.setLayoutManager(new LinearLayoutManager(this));
         CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryModel,options);
         category_RV.setAdapter(categoryAdapter);
@@ -49,4 +51,16 @@ public class NewMusicLayout extends AppCompatActivity {
 
 
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 }

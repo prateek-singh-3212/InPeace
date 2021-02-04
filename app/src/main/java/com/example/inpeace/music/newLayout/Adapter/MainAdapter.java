@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inpeace.R;
 import com.example.inpeace.music.newLayout.Model.CategoryModel;
-import com.example.inpeace.music.newLayout.Model.MainModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 

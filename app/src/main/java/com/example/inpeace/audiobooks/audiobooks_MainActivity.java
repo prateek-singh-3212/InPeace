@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,9 @@ import android.widget.NumberPicker;
 import com.example.inpeace.R;
 import com.example.inpeace.audiobooks.Adapter.Adapter_All_Fragments;
 import com.example.inpeace.audiobooks.Model.Model_All_Fragments;
+import com.example.inpeace.audiobooks.fragment.humor;
+import com.example.inpeace.audiobooks.fragment.mystery;
+import com.example.inpeace.audiobooks.fragment.selfhelp;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,16 +41,8 @@ public class audiobooks_MainActivity extends AppCompatActivity {
 
         databaseReference =  FirebaseDatabase.getInstance().getReference().child("audiobooks").child("Love");
 
-        recyclerView = findViewById(R.id.rcv);
-        FirebaseRecyclerOptions<Model_All_Fragments> options = new FirebaseRecyclerOptions.Builder<Model_All_Fragments>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("audiobooks").child("Love"),Model_All_Fragments.class)
-                .build();
+//        recyclerView = findViewById(R.id.rcv);
 
-
-//        LinearLayoutManager manager = ;
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter_All_Fragments(options);
-        recyclerView.setAdapter(adapter);
 
 //        FirebaseDatabase.getInstance().getReference().child("audiobooks").child("Love")
 //                .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -67,9 +63,41 @@ public class audiobooks_MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        Fragment fragment = new audiobook_content();
-//        FragmentManager fm = getSupportFragmentManager();
-//        fm.beginTransaction().addToBackStack(null).replace(R.id.audiobooks_content_fragment,fragment,null).commit();
+        Fragment fragment = new humor();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().addToBackStack(null).replace(R.id.audiobooks_content_fragment,fragment,null).commit();
 
     }
+
+    public void openMystery(View view) {
+        Fragment fragment = new mystery();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().addToBackStack(null).replace(R.id.audiobooks_content_fragment,fragment,null).commit();
+    }
+
+    public void selfhelp(View view) {
+
+        Fragment fragment = new selfhelp();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().addToBackStack(null).replace(R.id.audiobooks_content_fragment,fragment,null).commit();
+
+    }
+
+    public void openHumor(View view) {
+        Fragment fragment = new humor();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().addToBackStack(null).replace(R.id.audiobooks_content_fragment,fragment,null).commit();
+    }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 }

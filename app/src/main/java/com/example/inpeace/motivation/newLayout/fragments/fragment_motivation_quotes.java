@@ -27,6 +27,7 @@ public class fragment_motivation_quotes extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private QuotesAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -69,19 +70,19 @@ public class fragment_motivation_quotes extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_motivation_quotes, container, false);
 
-        FirebaseDatabase.getInstance().getReference().child("newquotes").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for(DataSnapshot snap : snapshot.getChildren()){
-                        Log.d("ALER"," "+snap.child("image").getValue());
-                    }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        FirebaseDatabase.getInstance().getReference().child("newquotes").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    for(DataSnapshot snap : snapshot.getChildren()){
+//                        Log.d("ALER"," "+snap.child("image").getValue());
+//                    }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
         FirebaseRecyclerOptions<QuotesModel> options = new FirebaseRecyclerOptions.Builder<QuotesModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("newquotes"),QuotesModel.class)
@@ -89,9 +90,22 @@ public class fragment_motivation_quotes extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.motivation_quotes_RV);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        QuotesAdapter adapter = new QuotesAdapter(options);
+        adapter = new QuotesAdapter(options);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
 }
