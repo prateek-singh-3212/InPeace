@@ -28,7 +28,6 @@ public class signup extends AppCompatActivity {
     private EditText signupEmail ;
     private EditText signupAge ;
     private RadioGroup signupGender ;
-    private TextView signupError;
     private String userId;
 
     @Override
@@ -42,7 +41,6 @@ public class signup extends AppCompatActivity {
         signupEmail = findViewById(R.id.signupEmail);
         signupAge = findViewById(R.id.signupAge);
         signupGender = findViewById(R.id.signupGender);
-        signupError = findViewById(R.id.signupError);
 
         // Database Connection
         mdatabase = FirebaseDatabase.getInstance().getReference();
@@ -97,13 +95,6 @@ public class signup extends AppCompatActivity {
                         mdatabase.child("sign in").child(userId).child("Phone Number").setValue(getIntent().getStringExtra("Phone Number"));
 
 
-                        //Text
-                        String text = " Name : " + signupName.getText().toString() +
-                                " Age : " + signupAge.getText().toString() +
-                                " Email : " + signupEmail.getText().toString() +
-                                " Gender : " + genderValue;
-
-                        signupError.setText(text);
 
                         // Opening new activity password verification
                         Intent intent = new Intent(signup.this, PasswordVerification.class);

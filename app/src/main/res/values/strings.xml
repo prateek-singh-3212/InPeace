@@ -26,4 +26,35 @@
     <string name="tab_text_1">Videos</string>
     <string name="tab_text_2">Quotes</string>
     <string name="title_activity_motivation_2">motivation_2</string>
+    <string name="prateek">Jaipur Engineering College and Research Centre | Computer Science Engineering | 2024 |
+I have a keen interest in Agri-Tech and I am the Leader of this team. I have done all of the
+Integration and Development part of the Application Development.</string>
+
+    <string name="prateek_name">Prateek Singh</string>
+
+    <string name="nishant">Jaipur Engineering College and Research Centre | Computer Science Engineering | 2024 |
+I am a creative enthusiast and have created unique designs for this application and
+managed all the Data required for the Application.</string>
+
+    <string name="nishant_name">Nishant Munshi</string>
+
+    <string name="kshitij">Jaipur Engineering College and Research Centre | Computer Science Engineering | 2024 |
+Have an eye for design and colour composition and have been a part of the design team. I
+also have played a major role in the management of Database.</string>
+
+    <string name="kshitij_name">Kshitiz Shrivastava</string>
+
+
+    <string name="bilal">Jaipur Engineering College and Research Centre | Computer Science Engineering | 2024 |
+I have dealt with Game Development and helped transform the ideas of the design team
+into a reality using code.</string>
+
+    <string name="bilal_name">Mohammed Bilal Sheikh</string>
+
+
+    <string name="kushagra">Application Tester</string>
+
+    <string name="kushagra_name">Kushagra Kashyap</string>
+
+
 </resources>

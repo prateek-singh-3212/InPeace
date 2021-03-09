@@ -2,18 +2,32 @@ package com.example.inpeace.music.newLayout.Model;
 
 public class CategoryModel {
 
-    private String categoryTitle;
-
-    public CategoryModel(String categoryTitle) {
-        this.categoryTitle = categoryTitle;
+    public CategoryModel() {
     }
 
-    public String getCategoryTitle() {
-        return categoryTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCategoryTitle(String categoryTitle) {
-        this.categoryTitle = categoryTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public CategoryModel(String category , String title) {
+        this.category = category;
+        this.title = title;
+    }
+
+    private String category ,title;
+
+
 }
 

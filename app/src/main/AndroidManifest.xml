@@ -15,7 +15,8 @@
         android:theme="@style/Theme.InPeace"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".motivation.newLayout.VideoPlayer"></activity>
+        <activity android:name=".audiobooks.AudioBookPlayer"></activity>
+        <activity android:name=".motivation.newLayout.VideoPlayer" />
         <activity
             android:name=".motivation.newLayout.motivation_home"
             android:label="@string/title_activity_motivation_home"

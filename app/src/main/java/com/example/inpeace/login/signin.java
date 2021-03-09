@@ -35,7 +35,6 @@ public class signin extends AppCompatActivity {
     private Button signinButtonBtn ;
     private EditText Password ;
     private EditText Email ;
-    private TextView error;
     private AlertDialog.Builder builder;
 
 

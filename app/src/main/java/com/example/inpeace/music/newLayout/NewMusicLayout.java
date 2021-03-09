@@ -11,6 +11,7 @@ import android.view.View;
 import com.example.inpeace.R;
 import com.example.inpeace.music.MusicPlayerActivity;
 import com.example.inpeace.music.newLayout.Adapter.CategoryAdapter;
+import com.example.inpeace.music.newLayout.Adapter.CategoryAdapterNew;
 import com.example.inpeace.music.newLayout.Adapter.MusicAdapter;
 import com.example.inpeace.music.newLayout.Model.CategoryModel;
 import com.example.inpeace.music.newLayout.Model.MusicModel;
@@ -25,6 +26,7 @@ public class NewMusicLayout extends AppCompatActivity {
     private RecyclerView category_RV;
     private List<CategoryModel> categoryModel;
     private MusicAdapter adapter;
+    private CategoryAdapterNew categoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,34 +35,42 @@ public class NewMusicLayout extends AppCompatActivity {
 
         category_RV = findViewById(R.id.newMusic_category_RV);
 
-        categoryModel = new ArrayList<>();
-        categoryModel.add(new CategoryModel("Most Liked"));
-        categoryModel.add(new CategoryModel("Meditation"));
-        categoryModel.add(new CategoryModel("Soft Wispers"));
-        categoryModel.add(new CategoryModel("Motivation"));
+//        categoryModel = new ArrayList<>();
+//        categoryModel.add(new CategoryModel("Most Liked"));
+//        categoryModel.add(new CategoryModel("Meditation"));
+//        categoryModel.add(new CategoryModel("Soft Wispers"));
+//        categoryModel.add(new CategoryModel("Motivation"));
+//
 
-        FirebaseRecyclerOptions<MusicModel> options = new FirebaseRecyclerOptions.Builder<MusicModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("music"), MusicModel.class)
+        //CATEGORY RECIVER
+        FirebaseRecyclerOptions<CategoryModel> categoryOptions = new FirebaseRecyclerOptions.Builder<CategoryModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("newmusic"), CategoryModel.class)
                 .build();
+
+
+//        FirebaseRecyclerOptions<MusicModel> options = new FirebaseRecyclerOptions.Builder<MusicModel>()
+//                .setQuery(FirebaseDatabase.getInstance().getReference().child("music"), MusicModel.class)
+//                .build();
 
       //   adapter = new MusicAdapter(options);
         category_RV.setLayoutManager(new LinearLayoutManager(this));
-        CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryModel,options);
+        categoryAdapter = new CategoryAdapterNew(categoryOptions,this,categoryModel);
         category_RV.setAdapter(categoryAdapter);
 
 
 
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        adapter.stopListening();
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        categoryAdapter.startListening();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        categoryAdapter.stopListening();
+    }
 }

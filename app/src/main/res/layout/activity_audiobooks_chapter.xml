@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/audiobookChapter"
     android:layout_width="match_parent"
-    android:layout_gravity="bottom|center"
     android:layout_height="match_parent"
-    android:background="@drawable/books1"
     tools:context=".audiobooks.audiobooks_chapter">
 
-
+<ImageView
+    android:layout_width="match_parent"
+    android:src="@drawable/books1"
+    android:scaleType="fitXY"
+    android:id="@+id/chapterBackImage"
+    android:layout_height="match_parent"/>
     <androidx.cardview.widget.CardView
-        android:layout_gravity="bottom"
+        android:layout_marginRight="5dp"
         android:layout_width="match_parent"
         android:layout_height="360dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="35dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="5dp"
         app:cardBackgroundColor="#B3FFFFFF"
-        app:cardCornerRadius="41dp">
+        app:cardCornerRadius="41dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931"
+        tools:layout_editor_absoluteX="25dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/audioBooks_chapter_RV"
-            android:layout_marginRight="41dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="41dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_marginRight="41dp"
+            android:layout_marginBottom="5dp" />
 
 
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

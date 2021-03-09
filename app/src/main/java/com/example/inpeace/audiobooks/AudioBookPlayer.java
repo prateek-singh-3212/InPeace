@@ -1,8 +1,9 @@
-package com.example.inpeace.music;
+package com.example.inpeace.audiobooks;
 
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationManagerCompat;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,21 +19,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 import com.example.inpeace.R;
-import com.example.inpeace.music.newLayout.NotificationReciver;
+import com.example.inpeace.audiobooks.Model.Model_Details;
+import com.example.inpeace.music.MusicPlayerActivity;
 import com.squareup.picasso.Picasso;
 
-import static com.example.inpeace.Notification.ACTION_NEXT;
-import static com.example.inpeace.Notification.ACTION_PLAY;
-import static com.example.inpeace.Notification.ACTION_PREVIOUS;
-import static com.example.inpeace.Notification.PLAYER_ID;
+import java.util.List;
 
-public class MusicPlayerActivity extends AppCompatActivity {
+public class AudioBookPlayer extends AppCompatActivity {
 
     private TextView SongName;
 
@@ -48,41 +42,45 @@ public class MusicPlayerActivity extends AppCompatActivity {
     private MediaSessionCompat mediaSessionCompat;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_player);
+        setContentView(R.layout.activity_audio_book_player);
 
-        songImage = findViewById(R.id.SongImage);
-        SongName = findViewById(R.id.songplayingnameTVMusic);
-        SongName.setText(getIntent().getStringExtra("songName"));
-        currenttimesongTVMusic = findViewById(R.id.currenttimesongTVMusic);
-        totaltimesongTVMusic = findViewById(R.id.totaltimesongTVMusic);
-        playpausebuttonMusic = findViewById(R.id.playpausebuttonMusic);
-        mainPlayerseekbar = findViewById(R.id.mainPlayerseekbar);
+
+        songImage = findViewById(R.id.SongImage123);
+        SongName = findViewById(R.id.songplayingnameTVMusic123);
+        currenttimesongTVMusic = findViewById(R.id.currenttimesongTVMusic123);
+        totaltimesongTVMusic = findViewById(R.id.totaltimesongTVMusic123);
+        playpausebuttonMusic = findViewById(R.id.playpausebuttonMusic123);
+        mainPlayerseekbar = findViewById(R.id.mainPlayerseekbar123);
         player = new MediaPlayer();
         miniPlayer = findViewById(R.id.miniMusicPlayer);
         manager = NotificationManagerCompat.from(this);
 
         mediaSessionCompat = new MediaSessionCompat(this, "MEDIA SESSION");
-        progressBar = findViewById(R.id.musicPlayerLoading);
+        progressBar = findViewById(R.id.musicPlayerLoading123);
 
 
         mainPlayerseekbar.setMax(100);
 
+
+        Log.d("ABC", " " + getIntent().getStringExtra("URL"));
 //         notificationMusic();
 
 //        NotificationImage image = new NotificationImage(getIntent().getStringExtra("image"));
 //        image.doInBackground();
 
         //Set song Image
-        Picasso.get().load(getIntent().getStringExtra("image")).into(songImage);
 
+        Picasso.get().load(getIntent().getStringExtra("imgURL")).into(songImage);
+
+        SongName.setText(getIntent().getStringExtra("BookName"));
+
+        //PREPARE MEDIA PLAYER
         preparemediaplayer(getIntent().getStringExtra("URL"));
 
 
-        //Play Pause button of Music
         playpausebuttonMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,12 +137,22 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
 //                    notificationMusic(R.drawable.ic_pause);
                 }
-                Toast.makeText(MusicPlayerActivity.this, "prepared", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AudioBookPlayer.this, "prepared", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
+        player.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
 
+                Log.d("ABC",""+what+" "+extra);
+
+                return true;
+            }
+        });
+
+
+    }
 
     public String  millisecondtosecond(long millisecond){
         String timerstring = "";
@@ -203,33 +211,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
 
         }catch (Exception e){
-           // Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
+            // Toast.makeText(MusicPlayerActivity.this , e.getMessage().toString() , Toast.LENGTH_LONG).show();
         }
-    }
-
-//    private void url(){
-//        String str ="";
-//        storageRef.child("abc/Chidiya_320(PaglaSongs).mp3").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                preparemediaplayer(uri.toString());
-//                Log.d("ABC" , uri.toString());
-//
-//                //Toast.makeText(trail_music.this , " "+ str + " " ,Toast.LENGTH_LONG).show();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception exception) {
-//                Toast.makeText(MusicPlayerActivity.this , "error url" ,Toast.LENGTH_LONG).show();
-//            }
-//        });
-//    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 
     @Override
@@ -237,54 +220,36 @@ public class MusicPlayerActivity extends AppCompatActivity {
         miniPlayer = findViewById(R.id.miniMusicPlayer);
         if (keyCode == event.KEYCODE_BACK) {
             player.stop();
+//            player.release();
 //            miniPlayer.setVisibility(View.VISIBLE);
         }
         return super.onKeyDown(keyCode, event);
     }
 
-    public void notificationMusic() {
-
-
-        Intent intent = new Intent(this, MusicPlayerActivity.class);
-        PendingIntent onClick = PendingIntent.getBroadcast(this, 0, intent, 0);
-
-        Intent playIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_PLAY);
-        PendingIntent playPendingIntent = PendingIntent.getBroadcast(this, 0, playIntent, 0);
-
-        Intent previousIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_PREVIOUS);
-        PendingIntent previousPendingIntent = PendingIntent.getBroadcast(this, 0, previousIntent, 0);
-
-            Intent nextIntent = new Intent(this, NotificationReciver.class).setAction(ACTION_NEXT);
-            PendingIntent nextPendingIntent = PendingIntent.getBroadcast(this, 0, nextIntent, 0);
-
-
-            Notification notification = new NotificationCompat.Builder(MusicPlayerActivity.this, PLAYER_ID)
-                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                    .setSmallIcon(R.drawable.logo_splash)
-                    .addAction(R.drawable.ic_skip_previous, "PREVIOUS", previousPendingIntent)
-                    .addAction(R.drawable.logo_splash, "PLAY", playPendingIntent)
-                    .addAction(R.drawable.ic_skip_next, "NEXT", nextPendingIntent)
-                    .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                            .setMediaSession(mediaSessionCompat.getSessionToken()))
-                    .setContentTitle(getIntent().getStringExtra("songName"))
-                    //.setContentText(getIntent().getStringExtra(""))
-                    .setOngoing(true)
-                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                    .setLargeIcon(new NotificationImage(getIntent().getStringExtra("image")).doInBackground())
-                    .setPriority(NotificationCompat.PRIORITY_LOW)
-                    .setContentIntent(onClick)
-                    .setOnlyAlertOnce(true)
-                    .build();
-
-        manager.notify(1, notification);
-
-    }
-
-
     public void addToLibrary(View view) {
-        Toast.makeText(this, "Added to Library", Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(this,"Added To Library",Toast.LENGTH_SHORT).show();
     }
 
+    public void moveForward(View view) {
+        int seekForwardTime = 10000;
+        int currentPosition = player.getCurrentPosition();
+        if (currentPosition + seekForwardTime <= player.getDuration()) {
+            player.seekTo(currentPosition + seekForwardTime);
+        } else {
+            player.seekTo(player.getDuration());
+        }
+        Toast.makeText(this , "+10 seconds" ,Toast.LENGTH_SHORT).show();
+    }
 
+    public void moveBackward(View view) {
+        int seekForwardTime = 10000;
+        int currentPosition = player.getCurrentPosition();
+        if (currentPosition <= seekForwardTime) {
+            player.seekTo(0);
+        } else {
+            player.seekTo(currentPosition-seekForwardTime);
+        }
+        Toast.makeText(this , "-10 seconds" ,Toast.LENGTH_SHORT).show();
+
+    }
 }

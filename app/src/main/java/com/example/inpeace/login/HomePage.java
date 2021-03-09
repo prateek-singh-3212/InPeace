@@ -23,21 +23,7 @@ public class HomePage extends AppCompatActivity {
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-//
-//        new Handler().post(new Runnable() {
-//            @Override
-//            public void run() {
-//                SQLiteDatabase database = new SQLiteDatabase(HomePage.this);
-//                if(database.checkUserIsSignedIn()){
-//                    Toast.makeText(HomePage.this,"user is signed in",Toast.LENGTH_LONG).show();
-//                    Intent intent = new Intent(HomePage.this, main.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
-//                }else {
-//                    Toast.makeText(HomePage.this,"not signed in",Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
+
 
         signin = findViewById(R.id.signin);
         signup = findViewById(R.id.signup);

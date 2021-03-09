@@ -25,9 +25,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     private Context context;
     private List<CategoryModel> categoryModel;
-    private FirebaseRecyclerOptions<MusicModel> musicModel;
+    private FirebaseRecyclerOptions<ModelMusic> musicModel;
 
-    public CategoryAdapter(Context context, List<CategoryModel> categoryModel,FirebaseRecyclerOptions<MusicModel> musicModels) {
+    public CategoryAdapter(Context context, List<CategoryModel> categoryModel,FirebaseRecyclerOptions<ModelMusic> musicModels) {
         this.context = context;
         this.categoryModel = categoryModel;
         this.musicModel= musicModels;
@@ -41,7 +41,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
-        holder.categoryName.setText(categoryModel.get(position).getCategoryTitle());
+        holder.categoryName.setText(categoryModel.get(position).getCategory());
         setCatItemRecycleView(holder.musicRV,musicModel);
     }
 
@@ -63,7 +63,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         }
     }
 
-    private void setCatItemRecycleView (RecyclerView recycleView , FirebaseRecyclerOptions<MusicModel> musicModel){
+    private void setCatItemRecycleView (RecyclerView recycleView , FirebaseRecyclerOptions<ModelMusic> musicModel){
 
 //        FirebaseRecyclerOptions<MusicModel> options = new FirebaseRecyclerOptions.Builder<MusicModel>()
 //                .setQuery(FirebaseDatabase.getInstance().getReference().child("music"), MusicModel.class)

@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         }, handler);
     }
 
-    public void addToLibrary(View view) {
-        Toast.makeText(this,"Added to Library",Toast.LENGTH_SHORT).show();
-    }
+   
 
 }

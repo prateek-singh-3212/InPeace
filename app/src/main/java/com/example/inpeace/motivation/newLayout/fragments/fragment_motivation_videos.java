@@ -72,7 +72,7 @@ public class fragment_motivation_videos extends Fragment {
         View view = inflater.inflate(R.layout.fragment_motivation_videos, container, false);
 
         FirebaseRecyclerOptions<VideoModel> options = new FirebaseRecyclerOptions.Builder<VideoModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("newvideos").child("motivation"),VideoModel.class)
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("azurevideo"),VideoModel.class)
                 .build();
 
         recyclerView = view.findViewById(R.id.motivation_videos_RV);

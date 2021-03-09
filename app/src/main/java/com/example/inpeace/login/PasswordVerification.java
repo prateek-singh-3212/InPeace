@@ -34,7 +34,6 @@ public class PasswordVerification extends AppCompatActivity {
     private DatabaseReference mdatabase;
     private String userId ;
     private ProgressDialog loading;
-    private TextView error;
     private AlertDialog.Builder builder;
 
     @Override
@@ -46,7 +45,6 @@ public class PasswordVerification extends AppCompatActivity {
         passwordNextBtn = findViewById(R.id.passwordNextBtn);
         passwordPassword = findViewById(R.id.passwordPassword);
         passwordConfirmPassword =findViewById(R.id.passwordConfirmPassword);
-        error = findViewById(R.id.passwordError);
 
         // inializing the database
         mdatabase = FirebaseDatabase.getInstance().getReference();
@@ -71,9 +69,6 @@ public class PasswordVerification extends AppCompatActivity {
 
                 String str1 =passwordConfirmPassword.getText().toString();
                 String str2 = passwordPassword.getText().toString();
-                String vv =str1 + " " +str2;
-                error.setText(vv);
-
 
                 if(str1.equals(str2) && str1.length()>=8){
                     mdatabase.child("sign in").child(userId).child("Password").setValue(passwordPassword.getText().toString());

@@ -27,7 +27,7 @@ public class QuotesAdapter extends FirebaseRecyclerAdapter<QuotesModel,QuotesAda
 
     @Override
     protected void onBindViewHolder(@NonNull Viewholder holder, int position, @NonNull QuotesModel model) {
-        Picasso.get().load(model.getImages()).into(holder.imageView);
+        Picasso.get().load(model.getImage()).into(holder.imageView);
     }
 
     @NonNull

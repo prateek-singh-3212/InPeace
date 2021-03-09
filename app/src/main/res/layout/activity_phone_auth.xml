@@ -139,15 +139,9 @@
                 android:id="@+id/phoneauthOTPVerifyBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verify"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_gravity="center_vertical|center_horizontal" />
-
-            <TextView
-                android:id="@+id/phoneauthTVOTPError"
-                android:layout_width="317dp"
-                android:layout_height="30dp"
-                android:text="Errors"/>
+                android:text="Verify" />
 
 
         </LinearLayout>

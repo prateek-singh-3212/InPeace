@@ -4,18 +4,18 @@ public class QuotesModel {
 
     private String image ;
 
-    public String getImages() {
+    public QuotesModel(String image) {
+        this.image = image;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImages(String images) {
-        this.image = images;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public QuotesModel() {
-    }
-
-    public QuotesModel(String images) {
-        this.image = images;
     }
 }

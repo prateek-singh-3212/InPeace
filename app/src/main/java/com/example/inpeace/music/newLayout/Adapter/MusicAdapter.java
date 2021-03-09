@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inpeace.R;
 import com.example.inpeace.music.AdapterMusic;
+import com.example.inpeace.music.ModelMusic;
 import com.example.inpeace.music.MusicPlayerActivity;
 import com.example.inpeace.music.newLayout.Model.MusicModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
 
-public class MusicAdapter extends FirebaseRecyclerAdapter<MusicModel,MusicAdapter.Viewholder> {
+public class MusicAdapter extends FirebaseRecyclerAdapter<ModelMusic,MusicAdapter.Viewholder> {
 
     private OnItemClickListener mListener;
 
@@ -32,12 +33,12 @@ public class MusicAdapter extends FirebaseRecyclerAdapter<MusicModel,MusicAdapte
     }
 
 
-    public MusicAdapter(@NonNull FirebaseRecyclerOptions<MusicModel> options) {
+    public MusicAdapter(@NonNull FirebaseRecyclerOptions<ModelMusic> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Viewholder holder, int position, @NonNull MusicModel model) {
+    protected void onBindViewHolder(@NonNull Viewholder holder, int position, @NonNull ModelMusic model) {
 
         holder.newMusic_url.setText(model.getSongURL());
         holder.newMusic_image.setText(model.getSongImage());

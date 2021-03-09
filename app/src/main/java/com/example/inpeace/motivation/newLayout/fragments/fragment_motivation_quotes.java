@@ -85,7 +85,7 @@ public class fragment_motivation_quotes extends Fragment {
 //        });
 
         FirebaseRecyclerOptions<QuotesModel> options = new FirebaseRecyclerOptions.Builder<QuotesModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("newquotes"),QuotesModel.class)
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("menuquotes"),QuotesModel.class)
                 .build();
 
         RecyclerView recyclerView = view.findViewById(R.id.motivation_quotes_RV);

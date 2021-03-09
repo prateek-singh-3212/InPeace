@@ -2,7 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_audiobook_content"
-    android:layout_width="188.5dp"
+    android:layout_width="195dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="8dp"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/audiobook_card_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -29,7 +32,7 @@
             <ImageView
                 android:id="@+id/audiobook_thumbnail_cardview"
                 android:layout_width="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:src="@drawable/ic_launcher_background" />
